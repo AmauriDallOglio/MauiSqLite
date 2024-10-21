@@ -1,6 +1,7 @@
 using MauiSqLite.App.Contexto;
 using MauiSqLite.App.Model;
-using System.Globalization;
+using System.Text;
+
 
 namespace MauiSqLite.App
 {
@@ -14,9 +15,9 @@ namespace MauiSqLite.App
             InitializeComponent();
             dbContext = new MeuContexto();
             dbContext.Database.EnsureCreated(); // Cria o banco se não existir
-           // ConfigurarBancoDeDados();
+                                                // ConfigurarBancoDeDados();
 
-        
+
             string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Usuarios.db");
             AtualizarInformacoesBancoDeDados(dbPath);
 
@@ -102,6 +103,7 @@ namespace MauiSqLite.App
                 UsuariosListView.ItemsSource = usuarios; // Define a fonte de dados da ListView
                 UsuariosListView.IsVisible = true; // Torna a ListView visível
                 ResultadoLabel.Text = $"{usuarios.Count} usuário(s) encontrado(s)."; // Mostra a contagem
+
             }
             else
             {
@@ -131,6 +133,8 @@ namespace MauiSqLite.App
 
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+
+
             if (e.SelectedItem != null)
             {
                 var usuarioSelecionado = e.SelectedItem as UsuarioModel; // Obtém o usuário selecionado
@@ -178,6 +182,46 @@ namespace MauiSqLite.App
         //        var noUsersLabel = new Label { Text = "Nenhum usuário encontrado.", FontSize = 16 };
         //        UsuariosStackLayout.Children.Add(noUsersLabel);
         //    }
+        //}
+
+
+
+        //public async Task GerarTxt() // Mudança para Task
+        //{
+
+        //    // Obtém o diretório de documentos do aplicativo
+        //    string diretorio = Path.Combine(FileSystem.AppDataDirectory, "Amauri");
+        //    string caminho = Path.Combine(diretorio, "usuarios.txt");
+
+        //    // Cria o diretório se não existir
+        //    if (!Directory.Exists(diretorio))
+        //    {
+        //        Directory.CreateDirectory(diretorio);
+        //    }
+
+        //    // Exemplo de inicialização dos usuários
+        //    List<UsuarioModel> usuarios = new List<UsuarioModel>
+        //    {
+        //        new UsuarioModel { Nome = "Maria", Email = "maria@example.com", Telefone = "123456789", DataNascimento = new DateTime(1990, 5, 10), DataCadastro = DateTime.Now, Ativo = true },
+        //        new UsuarioModel { Nome = "João", Email = "joao@example.com", Telefone = "987654321", DataNascimento = new DateTime(1985, 8, 15), DataCadastro = DateTime.Now, Ativo = false }
+        //    };
+
+        //    // Salva os dados no arquivo
+        //    using (var writer = new StreamWriter(caminho, false, Encoding.UTF8))
+        //    {
+        //        // Escrevendo cabeçalho
+        //        await writer.WriteLineAsync("Nome,Email,Telefone,Data de Nascimento,Data de Cadastro,Ativo");
+
+        //        // Escrevendo cada usuário
+        //        foreach (var usuario in usuarios)
+        //        {
+        //            string linha = $"{usuario.Nome},{usuario.Email},{usuario.Telefone},{usuario.DataNascimento:dd/MM/yyyy},{usuario.DataCadastro:dd/MM/yyyy},{usuario.Ativo}";
+        //            await writer.WriteLineAsync(linha);
+        //        }
+        //    }
+
+        //    await Application.Current.MainPage.DisplayAlert("Exportação Completa", $"Os dados foram exportados para {caminho}", "OK");
+
         //}
 
 

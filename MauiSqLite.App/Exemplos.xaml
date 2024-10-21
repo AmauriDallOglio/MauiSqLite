@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiSqLite.App.Exemplos"
+             Title="Exemplos">
+
+    <ContentPage.Resources>
+        <!-- Estilo para entradas de texto -->
+        <Style x:Key="CustomEntryStyle" TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="Margin" Value="10" />
+            <!--<Setter Property="Padding" Value="10,5" />-->
+            <!--<Setter Property="BorderBrush" Value="DodgerBlue" />-->
+            <!--<Setter Property="BorderWidth" Value="2" />-->
+            <!--<Setter Property="CornerRadius" Value="8" />-->
+        </Style>
+
+        <!-- Estilo para botões -->
+        <Style x:Key="CustomButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="DodgerBlue" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="HeightRequest" Value="45" />
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Padding" Value="15,5" />
+            <!--<Setter Property="BorderBrush" Value="White" />-->
+            <Setter Property="BorderWidth" Value="2" />
+        </Style>
+    </ContentPage.Resources>
+    
+    <VerticalStackLayout>
+
+        <ScrollView>
+            <Border Stroke="{StaticResource Blue500}"  
+                StrokeThickness="2" 
+                BackgroundColor="{StaticResource Blue100}"  
+                Padding="10" 
+                Margin="5"
+                StrokeShape="RoundRectangle 8">
+                <StackLayout Padding="20" Spacing="15">
+                    <!-- Entrada de texto com borda personalizada -->
+                    <Entry Placeholder="Digite seu texto aqui" />
+
+                    <!-- Botão com borda personalizada -->
+                    <Button Text="Enviar" BackgroundColor="{StaticResource Blue500}"   />
+                </StackLayout>
+            </Border>
+        </ScrollView>
+        
+
+        <ScrollView>
+            <StackLayout Padding="20" Spacing="15">
+                <!-- Entrada de texto com borda personalizada -->
+                <Entry Placeholder="Digite seu texto aqui"
+                   Style="{StaticResource CustomEntryStyle}" />
+
+                <!-- Botão com borda personalizada -->
+                <Button Text="Enviar"
+                    Style="{StaticResource CustomButtonStyle}" 
+                        BackgroundColor="{StaticResource Blue500}"  />
+                    
+            </StackLayout>
+        </ScrollView>
+        
+        
+        
+
+        <Label 
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <ActivityIndicator IsRunning="True" />
+
+        <!--<Button Text="Login"
+        Style="{StaticResource {x:Type Button}}"/>-->
+
+        <CheckBox IsChecked="True" />
+
+        <Label Text="Bem-vindo"
+       Style="{StaticResource Headline}"/>
+
+        <Frame>
+            <Label Text="Exemplo de Frame" />
+        </Frame>
+
+
+        <Entry Placeholder="Digite seu nome" />
+
+        <ProgressBar Progress="0.5" />
+
+
+        <RadioButton Content="Opção 1" />
+        <RadioButton Content="Opção 2" />
+
+
+        <ScrollView>
+            <Grid Padding="10" RowSpacing="10" ColumnSpacing="10">
+                <!-- Definição das colunas e linhas da grade -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+
+                <!-- Adicionando cores à grade -->
+                <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="{StaticResource Primary}" CornerRadius="10" />
+                <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="{StaticResource Secondary}" CornerRadius="10" />
+                <Frame Grid.Row="0" Grid.Column="2" BackgroundColor="{StaticResource Tertiary}" CornerRadius="10" />
+                <Frame Grid.Row="0" Grid.Column="3" BackgroundColor="{StaticResource Gray200}" CornerRadius="10" />
+
+                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="Red" CornerRadius="10" />
+                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="Green" CornerRadius="10" />
+                <Frame Grid.Row="1" Grid.Column="2" BackgroundColor="Blue" CornerRadius="10" />
+                <Frame Grid.Row="1" Grid.Column="3" BackgroundColor="Yellow" CornerRadius="10" />
+
+                <Frame Grid.Row="2" Grid.Column="0" BackgroundColor="Purple" CornerRadius="10" />
+                <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="Orange" CornerRadius="10" />
+                <Frame Grid.Row="2" Grid.Column="2" BackgroundColor="Pink" CornerRadius="10" />
+                <Frame Grid.Row="2" Grid.Column="3" BackgroundColor="Cyan" CornerRadius="10" />
+
+                <Frame Grid.Row="3" Grid.Column="0" BackgroundColor="Brown" CornerRadius="10" />
+                <Frame Grid.Row="3" Grid.Column="1" BackgroundColor="Magenta" CornerRadius="10" />
+                <Frame Grid.Row="3" Grid.Column="2" BackgroundColor="Lime" CornerRadius="10" />
+                <Frame Grid.Row="3" Grid.Column="3" BackgroundColor="Gray" CornerRadius="10" />
+            </Grid>
+        </ScrollView>
+
+
+        <!-- ScrollView para permitir rolagem vertical -->
+        <ScrollView Orientation="Vertical" Padding="10">
+            <StackLayout>
+                <!-- Texto de exemplo -->
+                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada, mi vel pharetra ultricies, dolor nisl pharetra neque, sed sollicitudin urna massa in sapien."
+                   FontSize="16"
+                   Margin="0, 0, 0, 20"/>
+
+                <Label Text="Vivamus volutpat, nunc a luctus suscipit, lacus dui varius velit, nec luctus nisl risus id orci. Integer porttitor gravida libero, eu tincidunt ex varius vel."
+                   FontSize="16"
+                   Margin="0, 0, 0, 20"/>
+
+                <Label Text="Donec finibus ligula id varius luctus. Curabitur placerat, magna eget euismod pulvinar, ipsum metus condimentum risus, ut cursus lacus risus a nisl."
+                   FontSize="16"
+                   Margin="0, 0, 0, 20"/>
+
+                <Label Text="Sed a velit venenatis, cursus ligula id, fermentum purus. Nam blandit sem sit amet neque egestas, non tristique libero bibendum. Morbi eu leo at lorem convallis fringilla."
+                   FontSize="16"
+                   Margin="0, 0, 0, 20"/>
+
+                <Label Text="Fusce eu turpis sit amet arcu ullamcorper porttitor. Suspendisse potenti. Maecenas vehicula, dui id tincidunt ultricies, felis mi tempus nunc, ut vestibulum urna ex sed elit."
+                   FontSize="16"
+                   Margin="0, 0, 0, 20"/>
+
+                <Label Text="Etiam fermentum nunc ac neque facilisis, ac suscipit justo iaculis. Donec auctor orci et lectus fermentum, ac consequat nulla consequat. Nulla facilisi."
+                   FontSize="16"
+                   Margin="0, 0, 0, 20"/>
+            </StackLayout>
+        </ScrollView>
+        
+        
+        
+    </VerticalStackLayout>
+</ContentPage>

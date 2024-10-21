@@ -19,6 +19,49 @@
     <Color x:Key="MidnightBlue">#190649</Color>
     <Color x:Key="OffBlack">#1f1f1f</Color>
 
+
+    <!-- Definição de cores para verde -->
+    <Color x:Key="Green100">#E0F8E0</Color>
+    <Color x:Key="Green200">#B2ECB2</Color>
+    <Color x:Key="Green300">#80D980</Color>
+    <Color x:Key="Green400">#4DCB4D</Color>
+    <Color x:Key="Green500">#26B826</Color>
+    <Color x:Key="Green600">#1A8A1A</Color>
+    <Color x:Key="Green900">#0D530D</Color>
+    <Color x:Key="Green950">#073207</Color>
+
+    <!-- Definição de cores para azul -->
+    <Color x:Key="Blue100">#E0F2FF</Color>
+    <Color x:Key="Blue200">#B2DEFF</Color>
+    <Color x:Key="Blue300">#80C6FF</Color>
+    <Color x:Key="Blue400">#4DAEFF</Color>
+    <Color x:Key="Blue500">#268FFF</Color>
+    <Color x:Key="Blue600">#1A6FCC</Color>
+    <Color x:Key="Blue900">#0D4373</Color>
+    <Color x:Key="Blue950">#072641</Color>
+
+    <!-- Definição de cores para vermelho -->
+    <Color x:Key="Red100">#FFE0E0</Color>
+    <Color x:Key="Red200">#FFB2B2</Color>
+    <Color x:Key="Red300">#FF8080</Color>
+    <Color x:Key="Red400">#FF4D4D</Color>
+    <Color x:Key="Red500">#FF2626</Color>
+    <Color x:Key="Red600">#CC1A1A</Color>
+    <Color x:Key="Red900">#730D0D</Color>
+    <Color x:Key="Red950">#410707</Color>
+
+    <!-- Definição de cores para amarelo -->
+    <Color x:Key="Yellow100">#FFF9E0</Color>
+    <Color x:Key="Yellow200">#FFF2B2</Color>
+    <Color x:Key="Yellow300">#FFEA80</Color>
+    <Color x:Key="Yellow400">#FFE34D</Color>
+    <Color x:Key="Yellow500">#FFDC26</Color>
+    <Color x:Key="Yellow600">#CCAD1A</Color>
+    <Color x:Key="Yellow900">#73680D</Color>
+    <Color x:Key="Yellow950">#413C07</Color>
+
+    
+    
     <Color x:Key="Gray100">#E1E1E1</Color>
     <Color x:Key="Gray200">#C8C8C8</Color>
     <Color x:Key="Gray300">#ACACAC</Color>

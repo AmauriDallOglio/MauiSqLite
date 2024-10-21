@@ -1,12 +1,23 @@
-﻿namespace MauiSqLite.App
+﻿using System.Diagnostics;
+
+namespace MauiSqLite.App
 {
     public partial class App : Application
     {
+
         public App()
         {
-            InitializeComponent();
-
-            MainPage = new AppShell();
+            try
+            {
+                InitializeComponent();
+                MainPage = new AppShell();
+            }
+            catch (XamlParseException ex)
+            {
+                Debug.WriteLine($"XAML Parse Error: {ex.Message}");
+                Debug.WriteLine($"Inner Exception: {ex.InnerException?.Message}");
+            }
         }
+
     }
 }

@@ -31,6 +31,16 @@
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Fill" />
 
+
+            <Button
+             x:Name="BotaoExemplo"
+             Text="Exemplos"
+             Clicked="OnExemplosButtonClicked"                
+             HorizontalOptions="Fill" />
+
+
+
+            
             <!-- Novo botão para navegação para a página de usuário -->
             <Button
                 x:Name="BotaoUsuario"
