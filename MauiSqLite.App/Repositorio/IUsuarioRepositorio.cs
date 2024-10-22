@@ -7,7 +7,7 @@ namespace MauiSqLite.App.Repositorio
         Task<int> Insert(UsuarioModel usuario);
         Task<int> Update(UsuarioModel usuario);
         Task<int> Delete(int id);
-        Task<List<UsuarioModel>> GetAll();
+        Task<List<UsuarioModel>> ObterTodos();
         Task<List<UsuarioModel>> Search(string termo);
     }
 }

@@ -1,5 +1,7 @@
 using MauiSqLite.App.Contexto;
 using MauiSqLite.App.Model;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System.Text;
 
 
@@ -13,7 +15,7 @@ namespace MauiSqLite.App
         public UsuarioPage()
         {
             InitializeComponent();
-            dbContext = new MeuContexto();
+            dbContext = App.DbContext; //new MeuContexto();
             dbContext.Database.EnsureCreated(); // Cria o banco se não existir
                                                 // ConfigurarBancoDeDados();
 
@@ -42,7 +44,7 @@ namespace MauiSqLite.App
             {
                 File.Delete(dbPath);
             }
-            dbContext = new MeuContexto();
+            dbContext = App.DbContext; //new MeuContexto();
             dbContext.Database.EnsureCreated();
 
         }
@@ -96,7 +98,9 @@ namespace MauiSqLite.App
         private void OnListarUsuariosClicked(object sender, EventArgs e)
         {
             // Recupera os usuários do banco de dados
-            var usuarios = dbContext.UsuarioModel.ToList();
+            //var usuarios = dbContext.UsuarioModel.ToList();
+
+            var usuarios = App.UsuarioRepositorio.ObterTodos().Result;
 
             if (usuarios.Any())
             {

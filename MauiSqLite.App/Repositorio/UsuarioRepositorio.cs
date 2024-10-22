@@ -40,7 +40,7 @@ namespace MauiSqLite.App.Repositorio
         }
 
        
-        public async Task<List<UsuarioModel>> GetAll()
+        public async Task<List<UsuarioModel>> ObterTodos()
         {
             return await _contexto.UsuarioModel.ToListAsync();
         }
