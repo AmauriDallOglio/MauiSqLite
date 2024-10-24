@@ -4,10 +4,10 @@ namespace MauiSqLite.App.Repositorio
 {
     public interface IUsuarioRepositorio
     {
-        Task<int> Insert(UsuarioModel usuario);
-        Task<int> Update(UsuarioModel usuario);
-        Task<int> Delete(int id);
+        Task<int> Inserir(UsuarioModel usuario);
+        Task<int> Alterar(UsuarioModel usuario);
+        Task<int> Excluir(int id);
         Task<List<UsuarioModel>> ObterTodos();
-        Task<List<UsuarioModel>> Search(string termo);
+        Task<List<UsuarioModel>> ObterPorNomeOuEmail(string nomeOuEmail);
     }
 }

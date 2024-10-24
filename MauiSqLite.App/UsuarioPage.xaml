@@ -12,7 +12,6 @@
 
         <Label Text="{Binding Nome}"  Style="{StaticResource Headline}" />
 
-        <Label x:Name="DatabaseInfoLabel"  FontSize="14"  TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Center" />
 
         <Entry x:Name="NomeEntry"    Placeholder="Digite seu nome"    FontSize="18" />
 

@@ -9,29 +9,13 @@ namespace MauiSqLite.App.Mapeamento
         public void Configure(EntityTypeBuilder<UsuarioModel> builder)
         {
             builder.ToTable("Usuario");
-
-
             builder.HasKey(u => u.Id);
-
-            builder.Property(u => u.Nome)
-                   .HasMaxLength(100)
-                   .IsRequired();   
-
-            builder.Property(u => u.Email)
-                   .HasMaxLength(100)
-                   .IsRequired();   
-
-            builder.Property(u => u.Telefone)
-                   .HasMaxLength(20);   
-
-            builder.Property(u => u.DataNascimento)
-                   .IsRequired();   
-
-            builder.Property(u => u.DataCadastro)
-                   .IsRequired();   
-
-            builder.Property(u => u.Ativo)
-                   .IsRequired();  
+            builder.Property(u => u.Nome).HasMaxLength(100).IsRequired(true);   
+            builder.Property(u => u.Email).HasMaxLength(100).IsRequired(true);   
+            builder.Property(u => u.Telefone).HasMaxLength(20).IsRequired(true);   
+            builder.Property(u => u.DataNascimento).IsRequired(true);   
+            builder.Property(u => u.DataCadastro).IsRequired(true);   
+            builder.Property(u => u.Ativo).IsRequired(true);  
         }
     }
 }

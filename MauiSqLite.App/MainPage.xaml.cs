@@ -7,18 +7,10 @@
         public MainPage()
         {
             InitializeComponent();
-        }
 
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            string dbPath = App.AppDatabasePath;
+            string databaseName = Path.GetFileName(dbPath);
+            DatabaseInfoLabel.Text = $"Nome do Banco de Dados: {databaseName}\n Caminho: {dbPath}";
         }
 
         private async void OnExemplosButtonClicked(object sender, EventArgs e)
@@ -26,7 +18,6 @@
             // Navegar para a página do usuário
             await Navigation.PushAsync(new Exemplos());
         }
-
 
         private async void OnUsuarioButtonClicked(object sender, EventArgs e)
         {
