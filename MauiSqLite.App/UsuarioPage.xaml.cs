@@ -33,13 +33,13 @@ namespace MauiSqLite.App
 
             if (usuarios.Any())
             {
-                UsuariosListView.ItemsSource = usuarios; // Define a fonte de dados da ListView
-                UsuariosListView.IsVisible = true; // Torna a ListView visível
-                ResultadoLabel.Text = $"{usuarios.Count} usuário(s) encontrado(s)."; // Mostra a contagem
+                UsuariosListView.ItemsSource = usuarios; 
+                UsuariosListView.IsVisible = true;
+                ResultadoLabel.Text = $"{usuarios.Count} usuário(s) encontrado(s)."; 
             }
             else
             {
-                UsuariosListView.IsVisible = false; // Esconde a ListView se não houver usuários
+                UsuariosListView.IsVisible = false; 
                 ResultadoLabel.Text = "Nenhum usuário encontrado.";
             }
         }
@@ -48,13 +48,12 @@ namespace MauiSqLite.App
         {
             if (e.SelectedItem != null)
             {
-                var usuarioSelecionado = e.SelectedItem as UsuarioModel; // Obtém o usuário selecionado
+                var usuarioSelecionado = e.SelectedItem as UsuarioModel; 
 
-                // Cria e exibe a página modal
                 var detalhesPage = new UsuarioDetalhePage(usuarioSelecionado);
-                await Navigation.PushModalAsync(detalhesPage); // Abre a página modal
+                await Navigation.PushModalAsync(detalhesPage);
 
-                UsuariosListView.SelectedItem = null; // Limpa a seleção
+                UsuariosListView.SelectedItem = null; 
             }
         }
 
