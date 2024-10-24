@@ -1,5 +1,6 @@
-﻿using MauiSqLite.App.Contexto;
-using MauiSqLite.App.Repositorio;
+﻿using MauiSqLite.Dominio.Interface;
+using MauiSqLite.Infra.Contexto;
+using MauiSqLite.Infra.Repositorio;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 

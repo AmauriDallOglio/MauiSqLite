@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiSqLite.App", "MauiSqLite.App\MauiSqLite.App.csproj", "{A9C05515-816B-4B39-A1ED-06EF1A1C11F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiSqLite.App", "MauiSqLite.App\MauiSqLite.App.csproj", "{A9C05515-816B-4B39-A1ED-06EF1A1C11F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nucleo", "Nucleo", "{8F9E7F8B-4959-4A52-833C-E520714D2ED8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiSqLite.Aplicacao", "MauiSqLite.Aplicacao\MauiSqLite.Aplicacao.csproj", "{D84ACFDB-43F8-4D25-BB8E-F3AC700BC222}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiSqLite.Dominio", "MauiSqLite.Dominio\MauiSqLite.Dominio.csproj", "{AC8E8D59-7C6E-4FC5-9E83-6057D9402F66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiSqLite.Infra", "MauiSqLite.Infra\MauiSqLite.Infra.csproj", "{608B685B-F4B0-4625-8B9B-F0F839B6F195}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiSqLite.Servico", "MauiSqLite.Servico\MauiSqLite.Servico.csproj", "{041DB391-E756-4404-89AB-09E149DD1A40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,9 +27,31 @@ Global
 		{A9C05515-816B-4B39-A1ED-06EF1A1C11F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9C05515-816B-4B39-A1ED-06EF1A1C11F0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A9C05515-816B-4B39-A1ED-06EF1A1C11F0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D84ACFDB-43F8-4D25-BB8E-F3AC700BC222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D84ACFDB-43F8-4D25-BB8E-F3AC700BC222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D84ACFDB-43F8-4D25-BB8E-F3AC700BC222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D84ACFDB-43F8-4D25-BB8E-F3AC700BC222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC8E8D59-7C6E-4FC5-9E83-6057D9402F66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC8E8D59-7C6E-4FC5-9E83-6057D9402F66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC8E8D59-7C6E-4FC5-9E83-6057D9402F66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC8E8D59-7C6E-4FC5-9E83-6057D9402F66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{608B685B-F4B0-4625-8B9B-F0F839B6F195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{608B685B-F4B0-4625-8B9B-F0F839B6F195}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{608B685B-F4B0-4625-8B9B-F0F839B6F195}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{608B685B-F4B0-4625-8B9B-F0F839B6F195}.Release|Any CPU.Build.0 = Release|Any CPU
+		{041DB391-E756-4404-89AB-09E149DD1A40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{041DB391-E756-4404-89AB-09E149DD1A40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{041DB391-E756-4404-89AB-09E149DD1A40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{041DB391-E756-4404-89AB-09E149DD1A40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D84ACFDB-43F8-4D25-BB8E-F3AC700BC222} = {8F9E7F8B-4959-4A52-833C-E520714D2ED8}
+		{AC8E8D59-7C6E-4FC5-9E83-6057D9402F66} = {8F9E7F8B-4959-4A52-833C-E520714D2ED8}
+		{608B685B-F4B0-4625-8B9B-F0F839B6F195} = {8F9E7F8B-4959-4A52-833C-E520714D2ED8}
+		{041DB391-E756-4404-89AB-09E149DD1A40} = {8F9E7F8B-4959-4A52-833C-E520714D2ED8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13939749-382D-4571-BA40-2A1B2B3E5542}

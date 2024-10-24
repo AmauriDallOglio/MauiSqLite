@@ -1,6 +1,6 @@
-using MauiSqLite.App.Contexto;
-using MauiSqLite.App.Model;
-using MauiSqLite.App.Repositorio;
+using MauiSqLite.Dominio.Entidade;
+using MauiSqLite.Dominio.Interface;
+using MauiSqLite.Infra.Contexto;
 
 
 namespace MauiSqLite.App

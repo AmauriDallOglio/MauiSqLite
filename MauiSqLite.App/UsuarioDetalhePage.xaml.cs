@@ -1,4 +1,4 @@
-using MauiSqLite.App.Model;
+using MauiSqLite.Dominio.Entidade;
 
 namespace MauiSqLite.App;
 

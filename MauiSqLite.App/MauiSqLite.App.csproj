@@ -80,6 +80,13 @@
 	  <Folder Include="Resources\View\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\MauiSqLite.Aplicacao\MauiSqLite.Aplicacao.csproj" />
+	  <ProjectReference Include="..\MauiSqLite.Dominio\MauiSqLite.Dominio.csproj" />
+	  <ProjectReference Include="..\MauiSqLite.Infra\MauiSqLite.Infra.csproj" />
+	  <ProjectReference Include="..\MauiSqLite.Servico\MauiSqLite.Servico.csproj" />
+	</ItemGroup>
+
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionMauiSqLiteAppHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>
