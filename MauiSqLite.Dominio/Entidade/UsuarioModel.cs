@@ -7,8 +7,8 @@
         public string Email { get; set; } = string.Empty;
         public string Telefone { get; set; } = string.Empty;
         public DateTime DataNascimento { get; set; }
-        public DateTime DataCadastro { get; set; } = DateTime.Now; // Define a data atual por padrão
-        public bool Ativo { get; set; } = true; // Define como ativo por padrão
+        public DateTime DataCadastro { get; set; } = DateTime.Now;
+        public bool Ativo { get; set; } = true;
 
         public UsuarioModel Incluir(string nome, string email, string telefone, DateTime dataNascimento, DateTime dataCadastro, bool ativo)
         {

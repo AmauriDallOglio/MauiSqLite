@@ -68,6 +68,12 @@
 	  <MauiXaml Update="Exemplos.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pagina\Usuario\UsuarioIndex.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pagina\Usuario\UsuarioDetalhe.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="UsuarioDetalhePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -85,6 +91,12 @@
 	  <ProjectReference Include="..\MauiSqLite.Dominio\MauiSqLite.Dominio.csproj" />
 	  <ProjectReference Include="..\MauiSqLite.Infra\MauiSqLite.Infra.csproj" />
 	  <ProjectReference Include="..\MauiSqLite.Servico\MauiSqLite.Servico.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Pagina\Usuario\UsuarioIndex.xaml.cs">
+	    <DependentUpon>UsuarioIndex.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionMauiSqLiteAppHideInfoBar="True" /></VisualStudio></ProjectExtensions>

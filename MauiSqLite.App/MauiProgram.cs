@@ -8,7 +8,7 @@ namespace MauiSqLite.App
 {
     public static class MauiProgram
     {
-        public static string AppDatabasePath = string.Empty;
+        public static string databasePath = string.Empty;
         public static MauiApp CreateMauiApp()
         {
 
@@ -27,10 +27,10 @@ namespace MauiSqLite.App
             #endif
 
 
-            AppDatabasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Usuarios.db");
+            databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Usuarios.db");
             builder.Services.AddDbContext<MeuContexto>(options =>
             {
-                options.UseSqlite($"Filename={AppDatabasePath}");
+                options.UseSqlite($"Filename={databasePath}");
             });
 
             builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
@@ -57,7 +57,7 @@ namespace MauiSqLite.App
                 //}
 
                 // Cria o banco de dados se ele não existir
-                if (!File.Exists(AppDatabasePath))
+                if (!File.Exists(databasePath))
                 {
                     contexto.Database.EnsureCreated();
                 }

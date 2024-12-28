@@ -15,14 +15,12 @@
 
         private async void OnExemplosButtonClicked(object sender, EventArgs e)
         {
-            // Navegar para a página do usuário
             await Navigation.PushAsync(new Exemplos());
         }
 
         private async void OnUsuarioButtonClicked(object sender, EventArgs e)
         {
-            // Navegar para a página do usuário
-            await Navigation.PushAsync(new UsuarioPage());
+            await Navigation.PushAsync(new Pagina.Usuario.UsuarioIndex());
         }
 
     }

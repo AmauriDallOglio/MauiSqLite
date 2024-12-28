@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiSqLite.Infra", "MauiSqL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiSqLite.Servico", "MauiSqLite.Servico\MauiSqLite.Servico.csproj", "{041DB391-E756-4404-89AB-09E149DD1A40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiSqLite.Api", "MauiSqLite.Api\MauiSqLite.Api.csproj", "{0CDAABB0-5F1D-4746-B6A8-2766B7E5953E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{041DB391-E756-4404-89AB-09E149DD1A40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{041DB391-E756-4404-89AB-09E149DD1A40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{041DB391-E756-4404-89AB-09E149DD1A40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CDAABB0-5F1D-4746-B6A8-2766B7E5953E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CDAABB0-5F1D-4746-B6A8-2766B7E5953E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CDAABB0-5F1D-4746-B6A8-2766B7E5953E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CDAABB0-5F1D-4746-B6A8-2766B7E5953E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

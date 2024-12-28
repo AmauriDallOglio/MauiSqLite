@@ -2,13 +2,13 @@ using MauiSqLite.Dominio.Entidade;
 using MauiSqLite.Dominio.Interface;
 using MauiSqLite.Infra.Contexto;
 
-namespace MauiSqLite.App;
+namespace MauiSqLite.App.Pagina.Usuario;
 
-public partial class UsuarioPage : ContentPage
+public partial class UsuarioIndex : ContentPage
 {
     private MeuContexto _meuContexto;
     public static IUsuarioRepositorio _iUsuarioRepositorio { get; private set; }
-    public UsuarioPage()
+    public UsuarioIndex()
     {
         InitializeComponent();
         _meuContexto = App.AppMeuContexto;
@@ -32,13 +32,13 @@ public partial class UsuarioPage : ContentPage
 
         if (usuarios.Any())
         {
-            UsuariosListView.ItemsSource = usuarios; 
+            UsuariosListView.ItemsSource = usuarios;
             UsuariosListView.IsVisible = true;
-            ResultadoLabel.Text = $"{usuarios.Count} usuário(s) encontrado(s)."; 
+            ResultadoLabel.Text = $"{usuarios.Count} usuário(s) encontrado(s).";
         }
         else
         {
-            UsuariosListView.IsVisible = false; 
+            UsuariosListView.IsVisible = false;
             ResultadoLabel.Text = "Nenhum usuário encontrado.";
         }
     }
@@ -47,13 +47,14 @@ public partial class UsuarioPage : ContentPage
     {
         if (e.SelectedItem != null)
         {
-            var usuarioSelecionado = e.SelectedItem as UsuarioModel; 
+            var usuarioSelecionado = e.SelectedItem as UsuarioModel;
 
-            var detalhesPage = new UsuarioDetalhePage(usuarioSelecionado);
+            var detalhesPage = new UsuarioDetalhe(usuarioSelecionado);
             await Navigation.PushModalAsync(detalhesPage);
 
-            UsuariosListView.SelectedItem = null; 
+            UsuariosListView.SelectedItem = null;
         }
     }
 
+ 
 }

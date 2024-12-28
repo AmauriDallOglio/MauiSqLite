@@ -16,6 +16,8 @@ namespace MauiSqLite.App
             {
                 InitializeComponent();
 
+                AppDatabasePath = Path.Combine(FileSystem.AppDataDirectory, "app.db");
+
                 AppMeuContexto = serviceProvider.GetRequiredService<MeuContexto>();
                 AppIUsuarioRepositorio = serviceProvider.GetRequiredService<IUsuarioRepositorio>();
 

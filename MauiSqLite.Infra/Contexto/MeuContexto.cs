@@ -15,12 +15,20 @@ namespace MauiSqLite.Infra.Contexto
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            if (!optionsBuilder.IsConfigured)
+            {
+                //optionsBuilder.UseSqlite($"Data Source={App.AppDatabasePath}");
+            }
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Configura o mapeamento do modelo
             modelBuilder.ApplyConfiguration(new UsuarioMapeamento());
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<UsuarioModel>().ToTable("Usuario");
+
 
         }
     }
