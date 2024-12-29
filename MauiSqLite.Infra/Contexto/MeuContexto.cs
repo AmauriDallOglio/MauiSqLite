@@ -26,8 +26,8 @@ namespace MauiSqLite.Infra.Contexto
         {
             // Configura o mapeamento do modelo
             modelBuilder.ApplyConfiguration(new UsuarioMapeamento());
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<UsuarioModel>().ToTable("Usuario");
+            //base.OnModelCreating(modelBuilder);
+            //modelBuilder.Entity<UsuarioModel>().ToTable("Usuario");
 
 
         }

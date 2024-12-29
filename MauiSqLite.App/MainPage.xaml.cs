@@ -13,9 +13,20 @@
             DatabaseInfoLabel.Text = $"Nome do Banco de Dados: {databaseName}\n Caminho: {dbPath}";
         }
 
+        private async void OnMenuButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Pagina.Exemplos.MenuHorizontal());
+        }
+
+
         private async void OnExemplosButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Exemplos());
+            await Navigation.PushAsync(new Pagina.Exemplos.ExemploPagina());
+        }
+
+        private async void OnComboButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Pagina.Exemplos.ExemploPaginaPicker());
         }
 
         private async void OnUsuarioButtonClicked(object sender, EventArgs e)

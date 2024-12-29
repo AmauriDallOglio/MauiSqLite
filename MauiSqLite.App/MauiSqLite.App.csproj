@@ -68,6 +68,15 @@
 	  <MauiXaml Update="Exemplos.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pagina\Exemplos\Exemplo.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pagina\Exemplos\ExemploPaginaPicker.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pagina\Exemplos\MenuHorizontal.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pagina\Usuario\UsuarioIndex.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -94,6 +103,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Pagina\Exemplos\Exemplo.xaml.cs">
+	    <DependentUpon>Exemplo.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Pagina\Usuario\UsuarioIndex.xaml.cs">
 	    <DependentUpon>UsuarioIndex.xaml</DependentUpon>
 	  </Compile>

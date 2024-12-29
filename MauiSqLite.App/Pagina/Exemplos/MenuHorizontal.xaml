@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiSqLite.App.Pagina.Exemplos.MenuHorizontal"
+             Title="MenuHorizontal">
+
+    <!-- Representa uma única página de conteúdo na aplicação. -->
+    <ContentPage.Content>
+        <!-- Organiza os elementos verticalmente, um abaixo do outro. -->
+        <VerticalStackLayout Padding="10" Spacing="20">
+            <!-- Título -->
+            <Label Text="Menu"
+                   FontSize="24"
+                   HorizontalOptions="Center" />
+
+            <!-- Permite rolagem horizontal, vertical ou ambas, útil para exibir conteúdos que não cabem na tela. -->
+            <ScrollView Orientation="Horizontal">
+                <!-- Organiza os elementos horizontalmente, lado a lado. -->
+                <HorizontalStackLayout Spacing="10"
+                                        Padding="5"
+                                        VerticalOptions="Center">
+                    <Button Text="Opção 1" 
+                            WidthRequest="80" 
+                            Clicked="Button_Clicked" />
+                    <Button Text="Opção 2" 
+                            WidthRequest="80" 
+                            Clicked="Button_Clicked" />
+                    <Button Text="Opção 3" 
+                            WidthRequest="80" 
+                            Clicked="Button_Clicked" />
+                    <Button Text="Opção 4" 
+                            WidthRequest="80" 
+                            Clicked="Button_Clicked" />
+                    <Button Text="Opção 5" 
+                            WidthRequest="80" 
+                            Clicked="Button_Clicked" />
+                    <Button Text="Opção 6" 
+                            WidthRequest="80" 
+                            Clicked="Button_Clicked" />
+                </HorizontalStackLayout>
+            </ScrollView>
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>
