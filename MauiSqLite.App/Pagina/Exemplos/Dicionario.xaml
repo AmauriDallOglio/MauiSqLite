@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiSqLite.App.Pagina.Exemplos.Dicionario"
+             Title="Dicionario">
+
+
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout Padding="10">
+                <Label Text="Lista de Componentes"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+
+
+                <FlexLayout Wrap="Wrap"
+                        Direction="Row"
+                        AlignItems="Start"
+                        JustifyContent="Start"
+                        Margin="10">
+
+                    <!-- Layouts -->
+                    <Label Text="Layouts"
+                            FontAttributes="Bold"
+                            TextColor="Red" />
+
+
+                    <Label Margin="3" Text="VerticalStackLayout: Organiza os elementos verticalmente, um abaixo do outro." />
+                    <Label Margin="3" Text="HorizontalStackLayout: Organiza os elementos horizontalmente, lado a lado." />
+                    <Label Margin="3" Text="Grid: Organiza os elementos em linhas e colunas, permitindo layouts mais complexos." />
+                    <Label Margin="3" Text="AbsoluteLayout: Permite posicionar os elementos com coordenadas específicas." />
+                    <Label Margin="3" Text="FlexLayout: Organiza os elementos com base em regras de layout flexível." />
+                    <Label Margin="3" Text="ContentView: Contêiner que contém um único elemento de conteúdo." />
+                    <Label Margin="3" Text="ScrollView: Permite rolagem horizontal, vertical ou ambas." />
+                    <Label Margin="3" Text="CollectionView: Exibe uma lista de itens com layouts personalizados." />
+
+                    <!-- Controles de Entrada -->
+                    <Label Text="Controles de Entrada"
+                        FontAttributes="Bold"
+                        TextColor="Red"
+                        />
+
+                    <Label Margin="3" Text="Entry: Campo de texto simples para entrada de texto." />
+                    <Label Margin="3" Text="Editor: Campo de texto multilinha para entrada de texto." />
+                    <Label Margin="3" Text="SearchBar: Campo de entrada de texto com funcionalidade de pesquisa." />
+                    <Label Margin="3" Text="Picker: Exibe uma lista de opções para o usuário selecionar." />
+                    <Label Margin="3" Text="DatePicker: Permite selecionar uma data." />
+                    <Label Margin="3" Text="TimePicker: Permite selecionar uma hora." />
+                    <Label Margin="3" Text="Switch: Botão de alternância (on/off)." />
+                    <Label Margin="3" Text="Slider: Permite selecionar um valor em um intervalo deslizante." />
+                    <Label Margin="3" Text="Stepper: Botões para aumentar ou diminuir um valor." />
+                    <Label Margin="3" Text="CheckBox: Permite selecionar ou desmarcar uma opção." />
+                    <Label Margin="3" Text="RadioButton: Seleciona uma opção entre várias alternativas." />
+
+
+                    <!-- Controles de Exibição -->
+                    <Label Text="Controles de Exibição"
+                        FontAttributes="Bold"
+                        TextColor="Red"
+                        />
+
+                    <Label Margin="3" Text="Label: Exibe texto estático ou dinâmico." />
+                    <Label Margin="3" Text="Button: Botão clicável que executa ações." />
+                    <Label Margin="3" Text="Image: Exibe imagens." />
+                    <Label Margin="3" Text="ActivityIndicator: Indica que uma ação está em andamento." />
+                    <Label Margin="3" Text="ProgressBar: Exibe o progresso de uma operação." />
+                    <Label Margin="3" Text="IndicatorView: Indicadores visuais para o estado do CarouselView." />
+                    <Label Margin="3" Text="Shapes: Formas geométricas como retângulos, elipses e linhas." />
+                    <Label Margin="3" Text="Frame: Contêiner com bordas arredondadas." />
+                    <Label Margin="3" Text="Border: Contêiner que fornece suporte a bordas personalizadas." />
+
+                    <!-- Controles de Navegação -->
+                    <Label Text="Controles de Navegação"
+                        FontAttributes="Bold"
+                        TextColor="Red"
+                        />
+
+                    <Label Margin="3" Text="NavigationPage: Gerencia a navegação entre páginas." />
+                    <Label Margin="3" Text="TabbedPage: Organiza o conteúdo em guias." />
+                    <Label Margin="3" Text="Shell: Navegação de alto nível com abas, flyouts e rotas." />
+                    <Label Margin="3" Text="FlyoutPage: Exibe um menu deslizante (flyout) para navegação." />
+
+
+                    <!-- Outros Controles -->
+                    <Label Text="Outros Controles de Navegação"
+                           FontAttributes="Bold"
+                           TextColor="Red"
+                           />
+
+
+                    <Label Margin="3" Text="Map: Exibe mapas interativos." />
+                    <Label Margin="3" Text="WebView: Exibe conteúdo da web." />
+                    <Label Margin="3" Text="Expander: Permite expandir ou recolher conteúdo." />
+                    <Label Margin="3" Text="CarouselView: Exibe itens em formato de carrossel." />
+                    <Label Margin="3" Text="GestureRecognizer: Adiciona suporte a gestos como toque e deslizar." />
+
+
+                </FlexLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

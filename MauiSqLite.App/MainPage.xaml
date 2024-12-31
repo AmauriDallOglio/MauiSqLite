@@ -6,18 +6,18 @@
 
 
     <ContentPage.Resources>
-    <ResourceDictionary>
-        <Style x:Key="CustomButtonStyle" TargetType="Button">
-            <Setter Property="BackgroundColor" Value="LightBlue" />
-            <Setter Property="TextColor" Value="Black" />
-            <Setter Property="CornerRadius" Value="10" />
-            <Setter Property="Padding" Value="10" />
-        </Style>
-    </ResourceDictionary>
-</ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="CustomButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="LightBlue" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="Padding" Value="10" />
+            </Style>
+        </ResourceDictionary>
 
-    
-    
+    </ContentPage.Resources>
+
+   
     <ScrollView>
         <VerticalStackLayout Padding="10" Spacing="10" >
 
@@ -29,6 +29,16 @@
                 VerticalOptions="Center"
                 />
 
+
+
+            <Button
+                Style="{StaticResource CustomButtonStyle}" 
+                 x:Name="DicionarioExemplo"
+                 Text="Dicionario"
+                 Clicked="OnDicionarioButtonClicked"                
+                 HorizontalOptions="Fill" />
+            
+            
             <Button
                 Style="{StaticResource CustomButtonStyle}" 
                  x:Name="MenuExemplo"
@@ -53,7 +63,7 @@
             <Button
                 Style="{StaticResource CustomButtonStyle}" 
                 x:Name="BotaoUsuario"
-                Text="Ir para Página do Usuário"
+                Text="Usuário"
                 Clicked="OnUsuarioButtonClicked"
                 HorizontalOptions="Fill" />
 

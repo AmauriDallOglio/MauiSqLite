@@ -68,6 +68,9 @@
 	  <MauiXaml Update="Exemplos.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pagina\Exemplos\Dicionario.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pagina\Exemplos\Exemplo.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

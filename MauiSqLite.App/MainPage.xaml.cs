@@ -13,6 +13,13 @@
             DatabaseInfoLabel.Text = $"Nome do Banco de Dados: {databaseName}\n Caminho: {dbPath}";
         }
 
+
+        private async void OnDicionarioButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Pagina.Exemplos.Dicionario());
+        }
+
+
         private async void OnMenuButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Pagina.Exemplos.MenuHorizontal());
