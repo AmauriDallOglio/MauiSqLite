@@ -14,6 +14,22 @@
         }
 
 
+        private async void OnComponentesButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Pagina.Exemplos.Componentes());
+        }
+
+
+
+
+
+        private async void OnBotaoButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Pagina.Exemplos.Botao());
+        }
+
+
+
         private async void OnDicionarioButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Pagina.Exemplos.Dicionario());

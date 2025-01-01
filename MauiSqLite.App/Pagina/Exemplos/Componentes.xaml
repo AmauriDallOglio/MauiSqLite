@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiSqLite.App.Pagina.Exemplos.Componentes"
+             Title="Componentes">
+
+
+
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <!-- ActivityIndicator -->
+            <Label Text="ActivityIndicator" FontSize="18" FontAttributes="Bold" />
+            <ActivityIndicator IsRunning="True" />
+
+            <!-- IndicatorView -->
+            <Label Text="IndicatorView" FontSize="18" FontAttributes="Bold" />
+            <IndicatorView />
+
+            <!-- Border -->
+            <Label Text="Border" FontSize="18" FontAttributes="Bold" />
+            <Border StrokeThickness="1" Padding="10">
+                <Label Text="This is inside a Border" HorizontalOptions="Center" VerticalOptions="Center" />
+            </Border>
+
+            <!-- BoxView -->
+            <Label Text="BoxView" FontSize="18" FontAttributes="Bold" />
+            <BoxView HeightRequest="50" WidthRequest="50" />
+
+            <!-- Button -->
+            <Label Text="Button" FontSize="18" FontAttributes="Bold" />
+            <Button Text="Click Me" />
+
+            <!-- CheckBox -->
+            <Label Text="CheckBox" FontSize="18" FontAttributes="Bold" />
+            <CheckBox IsChecked="True" />
+
+            <!-- DatePicker -->
+            <Label Text="DatePicker" FontSize="18" FontAttributes="Bold" />
+            <DatePicker />
+
+            <!-- Editor -->
+            <Label Text="Editor" FontSize="18" FontAttributes="Bold" />
+            <Editor Placeholder="Enter some text here..." />
+
+            <!-- Entry -->
+            <Label Text="Entry" FontSize="18" FontAttributes="Bold" />
+            <Entry Placeholder="Enter text here..." />
+
+            <!-- Frame -->
+            <Label Text="Frame" FontSize="18" FontAttributes="Bold" />
+            <Frame>
+                <Label Text="This is inside a Frame" HorizontalOptions="Center" VerticalOptions="Center" />
+            </Frame>
+
+
+            <Label Text="Preview dos Estilos" Style="{StaticResource Headline}" />
+
+            <Label Text="Label Estilizado" Style="{StaticResource SubHeadline}" />
+            <Label Text="Texto normal de exemplo" />
+
+            <ImageButton Source="icon.png" />
+            <Label Text="ImageButton com estilo aplicado." />
+
+            <Picker Title="Selecione uma opção" ItemsSource="{Binding Options}" />
+            <Label Text="Picker estilizado." />
+
+            <ProgressBar Progress="0.5" />
+            <Label Text="Barra de progresso estilizada." />
+
+            <RadioButton Content="Opção 1" />
+            <RadioButton Content="Opção 2" />
+
+            <ListView>
+                <ListView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Item 1</x:String>
+                        <x:String>Item 2</x:String>
+                        <x:String>Item 3</x:String>
+                    </x:Array>
+                </ListView.ItemsSource>
+            </ListView>
+            <Label Text="ListView com estilo aplicado." />
+
+            <RefreshView>
+                <RefreshView.Content>
+                    <Label Text="Puxe para atualizar." />
+                </RefreshView.Content>
+            </RefreshView>
+
+            <SearchBar Placeholder="Buscar algo..." />
+            <Label Text="SearchBar estilizado." />
+
+
+
+            <!-- SearchHandler -->
+            <SearchBar Placeholder="Search here..." />
+
+            <!-- Slider -->
+            <Slider Minimum="0" Maximum="100" />
+
+            <!-- Switch -->
+            <Switch IsToggled="True" />
+
+            <!-- SwipeItem Example -->
+            <CollectionView>
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Swipe Item 1</x:String>
+                        <x:String>Swipe Item 2</x:String>
+                        <x:String>Swipe Item 3</x:String>
+                    </x:Array>
+                </CollectionView.ItemsSource>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Delete" BackgroundColor="Red" />
+                                    <SwipeItem Text="Archive" BackgroundColor="Gray" />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <Grid Padding="10">
+                                <Label Text="{Binding .}" />
+                            </Grid>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- TimePicker -->
+            <TimePicker />
+
+            <!-- TabbedPage Example -->
+            <Label Text="TabbedPage and NavigationPage styles are applied globally and can't be displayed inline here." 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center" 
+                   FontAttributes="Italic" />
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

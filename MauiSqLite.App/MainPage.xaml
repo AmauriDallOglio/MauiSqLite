@@ -29,7 +29,21 @@
                 VerticalOptions="Center"
                 />
 
+            <Button
+                Style="{StaticResource CustomButtonStyle}" 
+                 x:Name="Componentes"
+                 Text="Componentes"
+                 Clicked="OnComponentesButtonClicked"                
+                 HorizontalOptions="Fill" />
+            
 
+            <Button
+                Style="{StaticResource CustomButtonStyle}" 
+                 x:Name="BotaoExemplo2"
+                 Text="Botão"
+                 Clicked="OnBotaoButtonClicked"                
+                 HorizontalOptions="Fill" />
+            
 
             <Button
                 Style="{StaticResource CustomButtonStyle}" 
