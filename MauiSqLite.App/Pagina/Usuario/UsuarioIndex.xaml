@@ -6,46 +6,118 @@
 
 
 
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
 
-    <StackLayout Padding="20" Spacing="10">
-        <Label Text="Cadastro de usuário!" VerticalOptions="Center"  HorizontalOptions="Center" />
+            <Border StrokeThickness="1" Padding="10">
+                <Label Text="Cadastro de usuário!" VerticalOptions="Center"  HorizontalOptions="Center" />
+            </Border>
+        
+ 
+            <Grid RowSpacing="2" ColumnSpacing="0">
+                <!-- Definição de três linhas para dividir a tela -->
 
-        <Label Text="{Binding Nome}"  Style="{StaticResource Headline}" />
-
-
-        <Entry x:Name="NomeEntry"    Placeholder="Digite seu nome"    FontSize="18" />
-        <Entry x:Name="EmailEntry"   Placeholder="Digite seu email"  FontSize="18" />
-        <Entry x:Name="TelefoneEntry"   Placeholder="Digite seu telefone"   FontSize="18"  Keyboard="Telephone" />
-        <Label Text="Data de Nascimento" FontSize="18" />
-        <DatePicker x:Name="DataNascimentoPicker" Format="D" />
-        <Switch x:Name="AtivoSwitch"   IsToggled="True"   OnColor="Green"  ThumbColor="White" />
-        <Label Text="Ativo" FontSize="18" />
-        <Button Text="Gravar Usuário"    Clicked="OnGravarUsuarioClicked"    FontSize="18" />
-        <Label Text="Listagem de usuários"   Style="{StaticResource Headline}" />
-        <Button Text="Listar Usuários"    Clicked="OnListarUsuariosClicked"  FontSize="18" />
-        <Label x:Name="ResultadoLabel"  FontSize="18" TextColor="Green"   HorizontalOptions="Center"  />
-
-
-        <ListView x:Name="UsuariosListView"    ItemSelected="OnItemSelected"   IsVisible="False">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="10" Spacing="5">
-                            <Label Text="{Binding Nome}"  FontSize="18"  FontAttributes="Bold" />
-                            <Label Text="{Binding Email}"   FontSize="16" />
-                            <Label Text="{Binding Telefone}"    FontSize="16" />
-                            <Label Text="{Binding DataNascimento, StringFormat='Data de Nascimento: {0:d}'}"    FontSize="16" />
-                            <Label Text="{Binding DataCadastro, StringFormat='Data de Cadastro: {0:d}'}"    FontSize="16" />
-                            <!--<Label Text="{Binding Ativo, Converter={StaticResource BooleanToStringConverter}}"    FontSize="16" />-->
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <!-- Parte superior -->
+                    <RowDefinition Height="2*" />
+                    <!-- Parte do meio -->
+                    <RowDefinition Height="50" />
+                    <!-- Parte inferior -->
+                </Grid.RowDefinitions>
 
 
-    </StackLayout>
+                <!-- Parte Superior -->
+                <Frame Grid.Row="0" BackgroundColor="LightBlue" Padding="10">
+                    <ScrollView>
+                        <VerticalStackLayout Spacing="10">
+                            <Border Stroke="{StaticResource Blue500}"  
+                                     StrokeThickness="2" 
+                                     BackgroundColor="{StaticResource Blue100}"  
+                                     Padding="10" 
+                                     Margin="5"
+                                     StrokeShape="RoundRectangle 8">
+                                <StackLayout Padding="20" Spacing="15">
+                                    
+                                    <Entry x:Name="NomeEntry"    Placeholder="Digite seu nome"    FontSize="18" />
+                                    <Entry x:Name="EmailEntry"   Placeholder="Digite seu email"  FontSize="18" />
+                                    <Entry x:Name="TelefoneEntry"   Placeholder="Digite seu telefone"   FontSize="18"  Keyboard="Telephone" />
+                                    <Label Text="Data de Nascimento" FontSize="18" />
+                                    <DatePicker x:Name="DataNascimentoPicker" Format="D" />
+                                    <Switch x:Name="AtivoSwitch"   IsToggled="True"    OnColor="Green"  ThumbColor="White" />
+                                    <Label Text="Ativo" FontSize="18" />
 
+
+                                    <Button Text="Gravar Usuário"    Clicked="OnGravarUsuarioClicked"    FontSize="18" />
+
+                                    <Label x:Name="ResultadoLabelCadastro"  FontSize="18" TextColor="Green"   HorizontalOptions="Center"  />
+                                </StackLayout>
+                            </Border>
+                        </VerticalStackLayout>
+                    </ScrollView>
+                </Frame>
+
+                <!-- Parte do Meio (com Scroll) -->
+                <Frame Grid.Row="1" BackgroundColor="LightBlue" Padding="10">
+                    <ScrollView>
+                        <VerticalStackLayout Spacing="10">
+                            <Border Stroke="{StaticResource Blue500}"  
+                                     StrokeThickness="2" 
+                                     BackgroundColor="{StaticResource Blue100}"  
+                                     Padding="10" 
+                                     Margin="5"
+                                     StrokeShape="RoundRectangle 8">
+                                
+                                <StackLayout Padding="20" Spacing="15">
+
+                                    <Label Text="Listagem de usuários"   Style="{StaticResource Headline}" />
+                                    <Button Text="Listar Usuários"    Clicked="OnListarUsuariosClicked"  FontSize="18" />
+                                    <Label x:Name="ResultadoLabelGrid"  FontSize="18" TextColor="Green"   HorizontalOptions="Center"  />
+
+                                </StackLayout>
+                            </Border>
+
+                            <Border Stroke="{StaticResource Blue500}"  
+                               StrokeThickness="2" 
+                               BackgroundColor="{StaticResource Blue100}"  
+                               Padding="10" 
+                               Margin="5"
+                               StrokeShape="RoundRectangle 8">
+                                <ListView x:Name="UsuariosListView"    ItemSelected="OnItemSelected"   IsVisible="False">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Padding="10" Spacing="5">
+                                                <Label Text="{Binding Nome}"  FontSize="18"  FontAttributes="Bold" />
+                                                <!--<Label Text="{Binding Email}"   FontSize="16" />-->
+                                                <!--<Label Text="{Binding Telefone}"    FontSize="16" />-->
+                                                <!--<Label Text="{Binding DataNascimento, StringFormat='Data de Nascimento: {0:d}'}"    FontSize="16" />-->
+                                                <!--<Label Text="{Binding DataCadastro, StringFormat='Data de Cadastro: {0:d}'}"    FontSize="16" />-->
+                                                <!--<Label Text="{Binding Ativo, Converter={StaticResource BooleanToStringConverter}}"    FontSize="16" />-->
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            </Border>
+                        </VerticalStackLayout>
+                    </ScrollView>
+
+                </Frame>
+
+                <!-- Parte Inferior -->
+                <Frame Grid.Row="2" BackgroundColor="LightCoral" Padding="10">
+                    <Label Text="Parte Inferior" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" />
+
+                </Frame>
+
+            </Grid>
+        
+        
+
+
+        </VerticalStackLayout>
+    </ScrollView>
 
 
 

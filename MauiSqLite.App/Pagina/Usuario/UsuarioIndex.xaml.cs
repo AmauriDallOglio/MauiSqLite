@@ -19,7 +19,7 @@ public partial class UsuarioIndex : ContentPage
     {
         if (string.IsNullOrWhiteSpace(NomeEntry.Text) || string.IsNullOrWhiteSpace(EmailEntry.Text))
         {
-            ResultadoLabel.Text = "Por favor, insira os dados obrigatórios (Nome e Email).";
+            ResultadoLabelCadastro.Text = "Por favor, insira os dados obrigatórios (Nome e Email).";
         }
 
         UsuarioModel usuarioIncluir = new UsuarioModel().Incluir(NomeEntry.Text, EmailEntry.Text, TelefoneEntry.Text, DataNascimentoPicker.Date, DataNascimentoPicker.Date, AtivoSwitch.IsToggled);
@@ -34,12 +34,12 @@ public partial class UsuarioIndex : ContentPage
         {
             UsuariosListView.ItemsSource = usuarios;
             UsuariosListView.IsVisible = true;
-            ResultadoLabel.Text = $"{usuarios.Count} usuário(s) encontrado(s).";
+            ResultadoLabelGrid.Text = $"{usuarios.Count} usuário(s) encontrado(s).";
         }
         else
         {
             UsuariosListView.IsVisible = false;
-            ResultadoLabel.Text = "Nenhum usuário encontrado.";
+            ResultadoLabelGrid.Text = "Nenhum usuário encontrado.";
         }
     }
 
