@@ -27,16 +27,16 @@ namespace MauiSqLite.Api.Controllers
 
 
         [HttpGet("ObterUsuarios")]
-        public async Task<ActionResult<IEnumerable<UsuarioModel>>> ObterUsuarios()
+        public async Task<ActionResult<IEnumerable<Usuario>>> ObterUsuarios()
         {
-            return await _context.UsuarioModel.ToListAsync();
+            return await _context.Usuario.ToListAsync();
         }
 
      
         [HttpGet("ObterUsuarios/{id}")]
-        public async Task<ActionResult<UsuarioModel>> ObterUsuario(int id)
+        public async Task<ActionResult<Usuario>> ObterUsuario(int id)
         {
-            var usuario = await _context.UsuarioModel.FindAsync(id);
+            var usuario = await _context.Usuario.FindAsync(id);
 
             if (usuario == null)
             {
@@ -48,9 +48,9 @@ namespace MauiSqLite.Api.Controllers
 
    
         [HttpPost("Inserir")]
-        public async Task<ActionResult<UsuarioModel>> Inserir(UsuarioModel usuario)
+        public async Task<ActionResult<Usuario>> Inserir(Usuario usuario)
         {
-            _context.UsuarioModel.Add(usuario);
+            _context.Usuario.Add(usuario);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(ObterUsuario), new { id = usuario.Id }, usuario);
@@ -58,7 +58,7 @@ namespace MauiSqLite.Api.Controllers
 
 
         [HttpPut("Alterar/{id}")]
-        public async Task<IActionResult> Alterar(int id, UsuarioModel usuario)
+        public async Task<IActionResult> Alterar(int id, Usuario usuario)
         {
             if (id != usuario.Id)
             {
@@ -90,13 +90,13 @@ namespace MauiSqLite.Api.Controllers
         [HttpDelete("Excluir/{id}")]
         public async Task<IActionResult> Excluir(int id)
         {
-            var usuario = await _context.UsuarioModel.FindAsync(id);
+            var usuario = await _context.Usuario.FindAsync(id);
             if (usuario == null)
             {
                 return NotFound();
             }
 
-            _context.UsuarioModel.Remove(usuario);
+            _context.Usuario.Remove(usuario);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -104,7 +104,7 @@ namespace MauiSqLite.Api.Controllers
 
         private bool UsuarioExists(int id)
         {
-            return _context.UsuarioModel.Any(e => e.Id == id);
+            return _context.Usuario.Any(e => e.Id == id);
         }
     }
 }

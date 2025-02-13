@@ -1,6 +1,6 @@
 ﻿namespace MauiSqLite.Dominio.Entidade
 {
-    public class UsuarioModel
+    public class Usuario
     {
         public int Id { get; set; }
         public string Nome { get; set; } = string.Empty;
@@ -10,7 +10,7 @@
         public DateTime DataCadastro { get; set; } = DateTime.Now;
         public bool Ativo { get; set; } = true;
 
-        public UsuarioModel Incluir(string nome, string email, string telefone, DateTime dataNascimento, DateTime dataCadastro, bool ativo)
+        public Usuario Incluir(string nome, string email, string telefone, DateTime dataNascimento, DateTime dataCadastro, bool ativo)
         {
             Nome = nome;
             Email = email;

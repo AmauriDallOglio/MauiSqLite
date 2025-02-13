@@ -6,7 +6,11 @@ namespace MauiSqLite.Infra.Contexto
 {
     public class MeuContexto : DbContext
     {
-        public DbSet<UsuarioModel> UsuarioModel { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Anexo> Anexo { get; set; }
+        public DbSet<Comentario> Comentario { get; set; }
+        public DbSet<Tarefa> Tarefa { get; set; }
+
 
         public MeuContexto(DbContextOptions<MeuContexto> options) : base(options)
         {

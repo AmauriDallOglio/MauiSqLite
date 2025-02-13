@@ -15,41 +15,41 @@ namespace MauiSqLite.Infra.Repositorio
         }
 
 
-        public async Task<int> Inserir(UsuarioModel usuario)
+        public async Task<int> Inserir(Usuario usuario)
         {
-            _contexto.UsuarioModel.Add(usuario);
+            _contexto.Usuario.Add(usuario);
             return await _contexto.SaveChangesAsync();
         }
 
 
-        public async Task<int> Alterar(UsuarioModel usuario)
+        public async Task<int> Alterar(Usuario usuario)
         {
-            _contexto.UsuarioModel.Update(usuario);
+            _contexto.Usuario.Update(usuario);
             return await _contexto.SaveChangesAsync();
         }
 
 
         public async Task<int> Excluir(int id)
         {
-            var usuario = await _contexto.UsuarioModel.FindAsync(id);
+            var usuario = await _contexto.Usuario.FindAsync(id);
             if (usuario != null)
             {
-                _contexto.UsuarioModel.Remove(usuario);
+                _contexto.Usuario.Remove(usuario);
                 return await _contexto.SaveChangesAsync();
             }
             return 0;
         }
 
 
-        public async Task<List<UsuarioModel>> ObterTodos()
+        public async Task<List<Usuario>> ObterTodos()
         {
-            return await _contexto.UsuarioModel.AsNoTracking().ToListAsync();
+            return await _contexto.Usuario.AsNoTracking().ToListAsync();
         }
 
 
-        public async Task<List<UsuarioModel>> ObterPorNomeOuEmail(string nomeOuEmail)
+        public async Task<List<Usuario>> ObterPorNomeOuEmail(string nomeOuEmail)
         {
-            return await _contexto.UsuarioModel
+            return await _contexto.Usuario
                 .Where(u => u.Nome.Contains(nomeOuEmail) || u.Email.Contains(nomeOuEmail))
                 .ToListAsync();
         }

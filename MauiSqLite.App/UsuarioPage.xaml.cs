@@ -22,7 +22,7 @@ public partial class UsuarioPage : ContentPage
             ResultadoLabel.Text = "Por favor, insira os dados obrigatórios (Nome e Email).";
         }
 
-        UsuarioModel usuarioIncluir = new UsuarioModel().Incluir(NomeEntry.Text, EmailEntry.Text, TelefoneEntry.Text, DataNascimentoPicker.Date, DataNascimentoPicker.Date, AtivoSwitch.IsToggled);
+        Usuario usuarioIncluir = new Usuario().Incluir(NomeEntry.Text, EmailEntry.Text, TelefoneEntry.Text, DataNascimentoPicker.Date, DataNascimentoPicker.Date, AtivoSwitch.IsToggled);
         Task<int> gravacao = _iUsuarioRepositorio.Inserir(usuarioIncluir);
     }
 
@@ -47,7 +47,7 @@ public partial class UsuarioPage : ContentPage
     {
         if (e.SelectedItem != null)
         {
-            var usuarioSelecionado = e.SelectedItem as UsuarioModel; 
+            var usuarioSelecionado = e.SelectedItem as Usuario; 
 
             var detalhesPage = new UsuarioDetalhePage(usuarioSelecionado);
             await Navigation.PushModalAsync(detalhesPage);

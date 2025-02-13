@@ -4,7 +4,7 @@ namespace MauiSqLite.App.Pagina.Usuario;
 
 public partial class UsuarioDetalhe : ContentPage
 {
-    public UsuarioDetalhe(UsuarioModel usuario)
+    public UsuarioDetalhe(Dominio.Entidade.Usuario usuario)
     {
         InitializeComponent();
 

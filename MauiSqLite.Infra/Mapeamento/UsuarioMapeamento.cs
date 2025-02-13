@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MauiSqLite.Infra.Mapeamento
 {
-    public class UsuarioMapeamento : IEntityTypeConfiguration<UsuarioModel>
+    public class UsuarioMapeamento : IEntityTypeConfiguration<Usuario>
     {
-        public void Configure(EntityTypeBuilder<UsuarioModel> builder)
+        public void Configure(EntityTypeBuilder<Usuario> builder)
         {
             builder.ToTable("Usuario");
             builder.HasKey(u => u.Id);
