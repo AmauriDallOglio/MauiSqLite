@@ -1,10 +1,4 @@
-﻿using MauiSqLite.Dominio.Entidade;
-using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SQLite;
 
 public class Comentario
 {

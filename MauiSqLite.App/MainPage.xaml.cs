@@ -56,7 +56,10 @@
         {
             await Navigation.PushAsync(new Pagina.Usuario.UsuarioIndex());
         }
-
+        private async void OnTarefaButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Pagina.Tarefa.TarefaIndex());
+        }
     }
 
 }

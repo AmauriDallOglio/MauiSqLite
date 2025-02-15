@@ -35,6 +35,8 @@ namespace MauiSqLite.App
 
             builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
+            builder.Services.AddScoped<ITarefaRepositorio, TarefaRepositorio>();
+
             var mauiApp = builder.Build();
 
             BancoDeDados(mauiApp.Services);

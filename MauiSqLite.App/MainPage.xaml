@@ -77,9 +77,17 @@
             <Button
                 Style="{StaticResource CustomButtonStyle}" 
                 x:Name="BotaoUsuario"
-                Text="Usuário"
+                Text="Usuários"
                 Clicked="OnUsuarioButtonClicked"
                 HorizontalOptions="Fill" />
+
+            <Button
+                Style="{StaticResource CustomButtonStyle}" 
+                x:Name="BotaoTarefa"
+                Text="Tarefas"
+                Clicked="OnTarefaButtonClicked"
+                HorizontalOptions="Fill" />
+            
 
         </VerticalStackLayout>
     </ScrollView>

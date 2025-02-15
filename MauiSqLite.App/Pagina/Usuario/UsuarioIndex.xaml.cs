@@ -1,4 +1,3 @@
-using MauiSqLite.Dominio.Entidade;
 using MauiSqLite.Dominio.Interface;
 using MauiSqLite.Infra.Contexto;
 
