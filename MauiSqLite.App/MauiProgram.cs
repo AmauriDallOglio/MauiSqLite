@@ -1,4 +1,5 @@
-﻿using MauiSqLite.Dominio.Interface;
+﻿using MauiSqLite.App.Pagina.Tarefas;
+using MauiSqLite.Dominio.Interface;
 using MauiSqLite.Infra.Contexto;
 using MauiSqLite.Infra.Repositorio;
 using Microsoft.EntityFrameworkCore;
@@ -34,8 +35,11 @@ namespace MauiSqLite.App
             });
 
             builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
-
             builder.Services.AddScoped<ITarefaRepositorio, TarefaRepositorio>();
+
+
+
+
 
             var mauiApp = builder.Build();
 
@@ -46,6 +50,9 @@ namespace MauiSqLite.App
 
         }
 
+        /// <summary>
+        /// Garante que o banco de dados seja criado se não existir.
+        /// </summary>
         private static void BancoDeDados(IServiceProvider serviceProvider)
         {
             using (var scope = serviceProvider.CreateScope())
@@ -53,9 +60,9 @@ namespace MauiSqLite.App
                 var contexto = scope.ServiceProvider.GetRequiredService<MeuContexto>();
 
                 ////// Exclui o arquivo do banco de dados se existir
-                //if (File.Exists(AppDatabasePath) && 1 == 2)
+                //if (File.Exists(databasePath))
                 //{
-                //    File.Delete(AppDatabasePath); // Apaga o banco de dados existente
+                //    File.Delete(databasePath); // Apaga o banco de dados existente
                 //}
 
                 // Cria o banco de dados se ele não existir

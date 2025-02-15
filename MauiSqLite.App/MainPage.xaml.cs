@@ -58,8 +58,14 @@
         }
         private async void OnTarefaButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Pagina.Tarefa.TarefaIndex());
+            await Navigation.PushAsync(new Pagina.Tarefas.TarefaIndex());
         }
+
+        private async void OnKanbanButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Pagina.Tarefas.TarefaKanban());
+        }
+
     }
 
 }

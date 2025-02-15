@@ -86,10 +86,10 @@
 	  <MauiXaml Update="Pagina\Exemplos\MenuHorizontal.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pagina\Tarefa\TarefaIndex.xaml">
+	  <MauiXaml Update="Pagina\Tarefas\TarefaIndex.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pagina\Tarefa\TarefasDetalhePage.xaml">
+	  <MauiXaml Update="Pagina\Tarefas\TarefaKanban.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pagina\Usuario\UsuarioIndex.xaml">

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiSqLite.App.Pagina.Tarefas.TarefaIndex"
+             Title="TarefaIndex">
+
+
+
+    <StackLayout Padding="10">
+        <Label Text="Tarefas" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+
+        <CollectionView x:Name="ListaTarefas" ItemsSource="{Binding Tarefas}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Gray" CornerRadius="10" Padding="10" Margin="5">
+                        <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto">
+
+                            <!-- Título da Tarefa -->
+                            <Label Grid.Row="0" Text="{Binding Titulo}"
+                                   FontSize="18" FontAttributes="Bold" />
+
+                            <!-- Descrição -->
+                            <Label Grid.Row="1" Text="{Binding Descricao}"
+                                   FontSize="16" TextColor="Gray" />
+
+                            <!-- Status -->
+                            <Label Grid.Row="2" Text="{Binding Status}"
+                                   FontSize="16" TextColor="Blue" />
+
+                            <!-- Data de Criação -->
+                            <Label Grid.Row="3"
+                                   Text="{Binding DataCriacao, StringFormat='Criado: {0:dd/MM/yyyy HH:mm}'}"
+                                   FontSize="14" TextColor="DarkGray" />
+
+                            <!-- Data de Atualização -->
+                            <Label Grid.Row="4"
+                                   Text="{Binding DataAtualizacao, StringFormat='Atualizado: {0:dd/MM/yyyy HH:mm}'}"
+                                   FontSize="14" TextColor="DarkGray" />
+
+                            <!-- Usuário -->
+                            <Label Grid.Row="5" Text="{Binding UsuarioId, StringFormat='Usuário: {0}'}"
+                                   FontSize="14" TextColor="DarkGray" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+    
+    
+
+    <!--<StackLayout Padding="10">
+        <Label Text="Tarefas" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+
+        <CollectionView x:Name="ListaTarefas" ItemsSource="{Binding Tarefas}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Gray" CornerRadius="10" Padding="10" Margin="5">
+                        <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, Auto">
+                            <Label Grid.Row="0" Grid.Column="0"
+                                   Text="{Binding Descricao}"
+                                   FontSize="18"
+                                   FontAttributes="Bold" />
+
+                            <Label Grid.Row="1" Grid.Column="0"
+                                   Text="{Binding Status}"
+                                   FontSize="16"
+                                   TextColor="Gray" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>-->
+    
+
+    <!--<StackLayout Padding="20">
+        <Label Text="Minhas Tarefas" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+
+        <ListView ItemsSource="{Binding Tarefas}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Label Text="{Binding Descricao}" FontSize="18" VerticalOptions="Center" />
+                            <Label Text="{Binding Status}" FontSize="16" VerticalOptions="Center" Margin="10,0,0,0" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>-->
+    
+    
+    
+</ContentPage>

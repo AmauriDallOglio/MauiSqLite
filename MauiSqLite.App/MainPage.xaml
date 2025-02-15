@@ -87,7 +87,15 @@
                 Text="Tarefas"
                 Clicked="OnTarefaButtonClicked"
                 HorizontalOptions="Fill" />
-            
+
+
+            <Button
+                Style="{StaticResource CustomButtonStyle}" 
+                x:Name="BotaoTarefaKanban"
+                Text="Kanban"
+                Clicked="OnKanbanButtonClicked"
+                HorizontalOptions="Fill" />
+
 
         </VerticalStackLayout>
     </ScrollView>

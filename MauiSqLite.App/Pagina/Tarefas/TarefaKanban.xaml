@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiSqLite.App.Pagina.Tarefas.TarefaKanban"
+             Title="TarefaKanban">
+
+
+
+    <ContentPage.Content>
+        <!-- Scroll horizontal para o Kanban -->
+        <ScrollView Orientation="Horizontal">
+            <FlexLayout Direction="Row" Wrap="NoWrap" Padding="10" AlignItems="Start" JustifyContent="Center">
+
+                <!-- Coluna: Análise -->
+                <VerticalStackLayout Padding="5" WidthRequest="300">
+                    <Label Text="Análise" FontSize="18" FontAttributes="Bold" HorizontalOptions="Center" />
+                    <CollectionView ItemsSource="{Binding TarefasAnalise}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BorderColor="Gray" CornerRadius="10" Padding="10" Margin="5">
+                                    <VerticalStackLayout>
+                                        <Label Text="{Binding Titulo}" FontSize="16" FontAttributes="Bold" />
+                                        <Label Text="{Binding Descricao}" FontSize="14" TextColor="Gray" />
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <!-- Botão para adicionar tarefas nesta coluna -->
+                    <Button Text="Adicionar Tarefa" Clicked="AdicionarTarefaAnalise_Clicked" />
+                </VerticalStackLayout>
+
+                <!-- Coluna: Para Fazer -->
+                <VerticalStackLayout Padding="5" WidthRequest="300">
+                    <Label Text="Para Fazer" FontSize="18" FontAttributes="Bold" HorizontalOptions="Center" />
+                    <CollectionView ItemsSource="{Binding TarefasParaFazer}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BorderColor="Gray" CornerRadius="10" Padding="10" Margin="5">
+                                    <VerticalStackLayout>
+                                        <Label Text="{Binding Titulo}" FontSize="16" FontAttributes="Bold" />
+                                        <Label Text="{Binding Descricao}" FontSize="14" TextColor="Gray" />
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <!-- Botão para adicionar tarefas nesta coluna -->
+                    <Button Text="Adicionar Tarefa" Clicked="AdicionarTarefa_Clicked" />
+                </VerticalStackLayout>
+
+                <!-- Coluna: Em Desenvolvimento -->
+                <VerticalStackLayout Padding="5" WidthRequest="300">
+                    <Label Text="Em Desenvolvimento" FontSize="18" FontAttributes="Bold" HorizontalOptions="Center" />
+                    <CollectionView ItemsSource="{Binding TarefasDesenvolvimento}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BorderColor="Gray" CornerRadius="10" Padding="10" Margin="5">
+                                    <VerticalStackLayout>
+                                        <Label Text="{Binding Titulo}" FontSize="16" FontAttributes="Bold" />
+                                        <Label Text="{Binding Descricao}" FontSize="14" TextColor="Gray" />
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <!-- Botão para adicionar tarefas nesta coluna -->
+                    <Button Text="Adicionar Tarefa" Clicked="AdicionarTarefaDesenvolvimento_Clicked" />
+                </VerticalStackLayout>
+
+                <!-- Coluna: Concluído -->
+                <VerticalStackLayout Padding="5" WidthRequest="300">
+                    <Label Text="Concluído" FontSize="18" FontAttributes="Bold" HorizontalOptions="Center" />
+                    <CollectionView ItemsSource="{Binding TarefasConcluidas}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BorderColor="Gray" CornerRadius="10" Padding="10" Margin="5">
+                                    <VerticalStackLayout>
+                                        <Label Text="{Binding Titulo}" FontSize="16" FontAttributes="Bold" />
+                                        <Label Text="{Binding Descricao}" FontSize="14" TextColor="Gray" />
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <!-- Botão para adicionar tarefas nesta coluna -->
+                    <Button Text="Adicionar Tarefa" Clicked="AdicionarTarefaConcluido_Clicked" />
+                </VerticalStackLayout>
+
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
+    
+    
+
+    <!-- 
+
+    <ContentPage.Content>
+        --><!-- Scroll horizontal para o Kanban --><!--
+        <ScrollView Orientation="Horizontal">
+            <FlexLayout Direction="Row" Wrap="NoWrap" Padding="10" AlignItems="Start" JustifyContent="Start">
+
+                --><!-- Coluna: Análise --><!--
+                <VerticalStackLayout Padding="5" WidthRequest="300">
+                    <Label Text="Análise" FontSize="18" FontAttributes="Bold" HorizontalOptions="Center" />
+                    <CollectionView ItemsSource="{Binding TarefasAnalise}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BorderColor="Gray" CornerRadius="10" Padding="10" Margin="5">
+                                    <VerticalStackLayout>
+                                        <Label Text="{Binding Titulo}" FontSize="16" FontAttributes="Bold" />
+                                        <Label Text="{Binding Descricao}" FontSize="14" TextColor="Gray" />
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+
+                --><!-- Coluna: Para Fazer --><!--
+                <VerticalStackLayout Padding="5" WidthRequest="300">
+                    <Label Text="Para Fazer" FontSize="18" FontAttributes="Bold" HorizontalOptions="Center" />
+                    <CollectionView ItemsSource="{Binding TarefasParaFazer}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BorderColor="Gray" CornerRadius="10" Padding="10" Margin="5">
+                                    <VerticalStackLayout>
+                                        <Label Text="{Binding Titulo}" FontSize="16" FontAttributes="Bold" />
+                                        <Label Text="{Binding Descricao}" FontSize="14" TextColor="Gray" />
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+
+                --><!-- Coluna: Em Desenvolvimento --><!--
+                <VerticalStackLayout Padding="5" WidthRequest="300">
+                    <Label Text="Em Desenvolvimento" FontSize="18" FontAttributes="Bold" HorizontalOptions="Center" />
+                    <CollectionView ItemsSource="{Binding TarefasDesenvolvimento}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BorderColor="Gray" CornerRadius="10" Padding="10" Margin="5">
+                                    <VerticalStackLayout>
+                                        <Label Text="{Binding Titulo}" FontSize="16" FontAttributes="Bold" />
+                                        <Label Text="{Binding Descricao}" FontSize="14" TextColor="Gray" />
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+
+                --><!-- Coluna: Concluído --><!--
+                <VerticalStackLayout Padding="5" WidthRequest="300">
+                    <Label Text="Concluído" FontSize="18" FontAttributes="Bold" HorizontalOptions="Center" />
+                    <CollectionView ItemsSource="{Binding TarefasBacklog}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BorderColor="Gray" CornerRadius="10" Padding="10" Margin="5">
+                                    <VerticalStackLayout>
+                                        <Label Text="{Binding Titulo}" FontSize="16" FontAttributes="Bold" />
+                                        <Label Text="{Binding Descricao}" FontSize="14" TextColor="Gray" />
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
+    
+    -->
+
+
+
+
+</ContentPage>
