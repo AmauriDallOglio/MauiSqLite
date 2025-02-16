@@ -12,6 +12,6 @@ namespace MauiSqLite.Dominio.Enum
         Analise = 2,
         ParaFazer = 3,
         Desenvolvimento = 4,
-        Feito = 5
+        Concluida = 5
     }
 }

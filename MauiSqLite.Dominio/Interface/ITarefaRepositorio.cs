@@ -11,7 +11,7 @@ namespace MauiSqLite.Dominio.Interface
         Task<List<Tarefa>> ObterStatusEmAnalise();
         Task<List<Tarefa>> ObterStatusParaFazer();
         Task<List<Tarefa>> ObterStatusBacklog();
-        Task<List<Tarefa>> ObterStatusFeito();
+        Task<List<Tarefa>> ObterStatusConcluida();
         Task<List<Tarefa>> ObterStatusDesenvolvimento();
     }
 }

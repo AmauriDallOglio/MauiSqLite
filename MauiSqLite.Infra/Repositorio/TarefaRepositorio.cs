@@ -69,10 +69,10 @@ namespace MauiSqLite.Infra.Repositorio
 
 
 
-        public async Task<List<Tarefa>> ObterStatusFeito()
+        public async Task<List<Tarefa>> ObterStatusConcluida()
         {
             return await _contexto.Tarefa
-                .AsNoTracking().Where(u => u.Status == Dominio.Enum.Status.Feito)
+                .AsNoTracking().Where(u => u.Status == Dominio.Enum.Status.Concluida)
                 .ToListAsync();
         }
 

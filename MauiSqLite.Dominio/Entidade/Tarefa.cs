@@ -12,15 +12,34 @@ namespace MauiSqLite.Dominio.Entidade
         public string Descricao { get; set; }
         public DateTime DataCriacao { get; set; }
         public DateTime DataAtualizacao { get; set; }
-        public int UsuarioId { get; set; }
+        public int Id_Usuario { get; set; }
         public Status? Status { get; set; }
-
 
         public Tarefa()
         {
+
+        }
+
+        public Tarefa(Status status)
+        {
+            AdicionaDataCriacao();
+            AdicionaDataAlteracao();
+        }
+
+        public void AdicionaDataCriacao()
+        {
             this.DataCriacao = DateTime.Now;
+        }
+
+
+        public void AdicionaDataAlteracao()
+        {
             this.DataAtualizacao = DateTime.Now;
         }
+
+
+ 
+
 
         //[Ignore]
         //public Usuario Usuario

@@ -11,8 +11,8 @@ public class Comentario
     public int Id { get; set; }
     public string Texto { get; set; }
     public DateTime Data { get; set; }
-    public int TarefaId { get; set; }
-    public int UsuarioId { get; set; }
+    public int Id_Tarefa { get; set; }
+    public int Id_Usuario { get; set; }
 
     //[Ignore]
     //public Usuario Usuario
