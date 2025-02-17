@@ -34,11 +34,12 @@ namespace MauiSqLite.App
                 options.UseSqlite($"Filename={databasePath}");
             });
 
+ 
             builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
             builder.Services.AddScoped<ITarefaRepositorio, TarefaRepositorio>();
 
 
-
+            builder.Services.AddTransient<MainPage>();
 
 
             var mauiApp = builder.Build();

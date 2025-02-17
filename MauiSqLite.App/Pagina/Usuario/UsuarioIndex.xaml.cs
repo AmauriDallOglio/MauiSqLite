@@ -5,13 +5,13 @@ namespace MauiSqLite.App.Pagina.Usuario;
 
 public partial class UsuarioIndex : ContentPage
 {
-    private MeuContexto _meuContexto;
+    //private MeuContexto _meuContexto;
     public static IUsuarioRepositorio _iUsuarioRepositorio { get; private set; }
-    public UsuarioIndex()
+    public UsuarioIndex(IUsuarioRepositorio iUsuarioRepositorio)
     {
         InitializeComponent();
-        _meuContexto = App.AppMeuContexto;
-        _iUsuarioRepositorio = App.AppIUsuarioRepositorio;
+        //_meuContexto = App.AppMeuContexto;
+        _iUsuarioRepositorio = iUsuarioRepositorio; //App.AppIUsuarioRepositorio;
     }
 
     private void OnGravarUsuarioClicked(object sender, EventArgs e)

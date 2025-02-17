@@ -26,13 +26,13 @@ public partial class TarefaIndex : ContentPage
         var listaTarefas = new List<Tarefa>
         {
             new() { Id = 1, Titulo = "Revisão de Código", Descricao = "Verificar padrões e qualidade do código.",
-                    Status = Status.Analise, DataCriacao = agora.AddDays(-2), DataAtualizacao = agora, UsuarioId = 101 },
+                    Status = Status.Analise, DataCriacao = agora.AddDays(-2), DataAtualizacao = agora, Id_Usuario = 101 },
 
             new() { Id = 2, Titulo = "Testes de API", Descricao = "Executar testes unitários na API.",
-                    Status  = Status.ParaFazer, DataCriacao = agora.AddDays(-5), DataAtualizacao = agora.AddDays(-1), UsuarioId = 102 },
+                    Status  = Status.ParaFazer, DataCriacao = agora.AddDays(-5), DataAtualizacao = agora.AddDays(-1), Id_Usuario = 102 },
 
             new() { Id = 3, Titulo = "Documentação", Descricao = "Escrever documentação do projeto.",
-                    Status = Status.Desenvolvimento, DataCriacao = agora.AddDays(-10), DataAtualizacao = agora.AddDays(-3), UsuarioId = 103 }
+                    Status = Status.Desenvolvimento, DataCriacao = agora.AddDays(-10), DataAtualizacao = agora.AddDays(-3), Id_Usuario = 103 }
         };
 
         if (Tarefas.Count > 0)

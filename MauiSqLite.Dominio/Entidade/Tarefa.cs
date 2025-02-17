@@ -5,25 +5,26 @@ namespace MauiSqLite.Dominio.Entidade
 {
     public class Tarefa
     {
-
-        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Titulo { get; set; }
         public string Descricao { get; set; }
         public DateTime DataCriacao { get; set; }
-        public DateTime DataAtualizacao { get; set; }
-        public int Id_Usuario { get; set; }
+        public DateTime? DataAtualizacao { get; set; }
+        public int? Id_Usuario { get; set; }
         public Status? Status { get; set; }
 
         public Tarefa()
         {
-
+            AdicionaDataCriacao();
         }
 
-        public Tarefa(Status status)
+        public Tarefa DadosIncluir(string titulo, string descricao, Status status)
         {
+            Titulo = titulo;
+            Descricao = descricao;
+            Status = status;
             AdicionaDataCriacao();
-            AdicionaDataAlteracao();
+            return this;
         }
 
         public void AdicionaDataCriacao()

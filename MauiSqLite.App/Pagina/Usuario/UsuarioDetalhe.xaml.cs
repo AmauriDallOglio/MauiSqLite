@@ -8,6 +8,7 @@ public partial class UsuarioDetalhe : ContentPage
     {
         InitializeComponent();
 
+        IdLabel.Text = $"Id: {usuario.Id}";
         NomeLabel.Text = $"Nome: {usuario.Nome}";
         EmailLabel.Text = $"Email: {usuario.Email}";
         TelefoneLabel.Text = $"Telefone: {usuario.Telefone}";

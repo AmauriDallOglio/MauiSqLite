@@ -11,6 +11,9 @@
                FontSize="24"
                FontAttributes="Bold" />
 
+        <Label x:Name="IdLabel"
+               FontSize="18" />
+        
         <Label x:Name="NomeLabel"
                FontSize="18" />
 

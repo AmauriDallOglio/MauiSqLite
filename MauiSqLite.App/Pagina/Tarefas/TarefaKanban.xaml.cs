@@ -1,11 +1,13 @@
 using MauiSqLite.Dominio.Entidade;
 using MauiSqLite.Dominio.Enum;
+using MauiSqLite.Dominio.Interface;
 using System.Collections.ObjectModel;
 
 namespace MauiSqLite.App.Pagina.Tarefas;
 
 public partial class TarefaKanban : ContentPage
 {
+    public static ITarefaRepositorio _iTarefaRepositorio { get; private set; }
     public ObservableCollection<Tarefa> Tarefas_Backlog { get; set; } = new();
     public ObservableCollection<Tarefa> Tarefas_Analise { get; set; } = new();
     public ObservableCollection<Tarefa> Tarefas_ParaFazer { get; set; } = new();
@@ -13,12 +15,14 @@ public partial class TarefaKanban : ContentPage
     public ObservableCollection<Tarefa> Tarefas_Concluida { get; set; } = new();
     public Command<Tarefa> AlterarStatusTarefaCommand { get; }
 
-    public TarefaKanban()
+    public TarefaKanban(ITarefaRepositorio iTarefaRepositorio)
 	{
 		InitializeComponent();
         BindingContext = this;
 
         AlterarStatusTarefaCommand = new Command<Tarefa>(async (tarefa) => await AlterarStatusTarefa(tarefa));
+
+        _iTarefaRepositorio = iTarefaRepositorio; //App.AppITarefaRepositorio;
 
         CarregarTarefas();
     }
@@ -94,19 +98,32 @@ public partial class TarefaKanban : ContentPage
 
     private async void CarregarTarefas()
     {
-        var agora = DateTime.Now;
-        var listaTarefas = new List<Tarefa>
-        {
-            new() { Id = 1, Titulo = "Revisão de Código", Descricao = "Verificar padrões de código", Status = Status.Analise, DataCriacao = agora.AddDays(-2) },
-            new() { Id = 2, Titulo = "Testes API", Descricao = "Executar testes unitários", Status = Status.ParaFazer, DataCriacao = agora.AddDays(-5) },
-            new() { Id = 3, Titulo = "Documentação", Descricao = "Escrever documentação", Status = Status.Desenvolvimento, DataCriacao = agora.AddDays(-10) },
-            new() { Id = 4, Titulo = "Deploy", Descricao = "Publicar versão final", Status = Status.Backlog, DataCriacao = agora.AddDays(-1) },
-            new() { Id = 5, Titulo = "Bug Fix", Descricao = "Corrigir erro crítico", Status = Status.Analise, DataCriacao = agora.AddDays(-3) },
-            new() { Id = 6, Titulo = "Refatoração", Descricao = "Melhorar código legado", Status = Status.ParaFazer, DataCriacao = agora.AddDays(-7) },
-            new() { Id = 7, Titulo = "Integração", Descricao = "Configurar APIs", Status = Status.Desenvolvimento, DataCriacao = agora.AddDays(-8) },
-            new() { Id = 8, Titulo = "Revisão Final", Descricao = "Última revisão antes do deploy", Status = Status.Backlog, DataCriacao = agora.AddDays(-2) }
-        };
- 
+        DateTime agora = DateTime.Now;
+
+        //var listaTarefas = new List<Tarefa>
+        //{
+        //    new() { Id = 1, Titulo = "Revisão de Código", Descricao = "Verificar padrões de código", Status = Status.Analise, DataCriacao = agora.AddDays(-2) },
+        //    new() { Id = 2, Titulo = "Testes API", Descricao = "Executar testes unitários", Status = Status.ParaFazer, DataCriacao = agora.AddDays(-5) },
+        //    new() { Id = 3, Titulo = "Documentação", Descricao = "Escrever documentação", Status = Status.Desenvolvimento, DataCriacao = agora.AddDays(-10) },
+        //    new() { Id = 4, Titulo = "Deploy", Descricao = "Publicar versão final", Status = Status.Backlog, DataCriacao = agora.AddDays(-1) },
+        //    new() { Id = 5, Titulo = "Bug Fix", Descricao = "Corrigir erro crítico", Status = Status.Analise, DataCriacao = agora.AddDays(-3) },
+        //    new() { Id = 6, Titulo = "Refatoração", Descricao = "Melhorar código legado", Status = Status.ParaFazer, DataCriacao = agora.AddDays(-7) },
+        //    new() { Id = 7, Titulo = "Integração", Descricao = "Configurar APIs", Status = Status.Desenvolvimento, DataCriacao = agora.AddDays(-8) },
+        //    new() { Id = 8, Titulo = "Revisão Final", Descricao = "Última revisão antes do deploy", Status = Status.Backlog, DataCriacao = agora.AddDays(-2) }
+        //};
+
+        //foreach (var tarefa in listaTarefas)
+        //{
+        //    //tarefa.Id_Usuario = 1;
+        //    tarefa.DataAtualizacao = agora;
+        //    tarefa.DataCriacao = agora;
+
+        //    await _iTarefaRepositorio.Inserir(tarefa);
+        //}
+
+
+        var listaTarefas = _iTarefaRepositorio.ObterTodos().Result;
+
         Tarefas_Analise.Clear();
         Tarefas_ParaFazer.Clear();
         Tarefas_Desenvolvimento.Clear();
@@ -141,78 +158,106 @@ public partial class TarefaKanban : ContentPage
 
     private async void AdicionarTarefa_Backlog_Clicked(object sender, EventArgs e)
     {
+        //string titulo = await DisplayPromptAsync("Nova Tarefa", "Digite o título da tarefa:");
+
+        //if (!string.IsNullOrWhiteSpace(titulo))
+        //{
+        //    string descricao = await DisplayPromptAsync("Nova Tarefa", "Digite a descrição da tarefa:");
+
+        //    Tarefa novaTarefa = new Tarefa().DadosIncluir(titulo, descricao, Status.Backlog);
+
+        //    _iTarefaRepositorio.Inserir(novaTarefa);
+        //    Tarefas_Backlog.Add(novaTarefa);
+        //}
+
+        Tarefa tarefa = await NovaTarefa(Status.Backlog);
+        Tarefas_Backlog.Add(tarefa);
+
+
+    }
+
+    private async void AdicionarTarefa_Analise_Clicked(object sender, EventArgs e)
+    {
+        //string titulo = await DisplayPromptAsync("Nova Tarefa", "Digite o título da tarefa:");
+
+        //if (!string.IsNullOrWhiteSpace(titulo))
+        //{
+        //    string descricao = await DisplayPromptAsync("Nova Tarefa", "Digite a descrição da tarefa:");
+
+        //    Tarefa novaTarefa = new Tarefa().DadosIncluir(titulo, descricao, Status.Analise);
+
+        //    _iTarefaRepositorio.Inserir(novaTarefa);
+        //    Tarefas_Analise.Add(novaTarefa);
+        //}
+        Tarefa tarefa = await NovaTarefa(Status.Analise);
+        Tarefas_Backlog.Add(tarefa);
+    }
+
+    private async void AdicionarTarefa_ParaFazer_Clicked(object sender, EventArgs e)
+    {
+        //string titulo = await DisplayPromptAsync("Nova Tarefa", "Digite o título da tarefa:");
+
+        //if (!string.IsNullOrWhiteSpace(titulo))
+        //{
+        //    string descricao = await DisplayPromptAsync("Nova Tarefa", "Digite a descrição da tarefa:");
+
+        //    Tarefa novaTarefa = new Tarefa().DadosIncluir(titulo, descricao, Status.ParaFazer);
+
+        //    _iTarefaRepositorio.Inserir(novaTarefa);
+        //    Tarefas_ParaFazer.Add(novaTarefa);
+        //}
+        Tarefa tarefa = await NovaTarefa(Status.ParaFazer);
+        Tarefas_Backlog.Add(tarefa);
+    }
+
+    private async void AdicionarTarefa_Desenvolvimento_Clicked(object sender, EventArgs e)
+    {
+        //string titulo = await DisplayPromptAsync("Nova Tarefa", "Digite o título da tarefa:");
+
+        //if (!string.IsNullOrWhiteSpace(titulo))
+        //{
+        //    string descricao = await DisplayPromptAsync("Nova Tarefa", "Digite a descrição da tarefa:");
+
+        //    Tarefa novaTarefa = new Tarefa().DadosIncluir(titulo, descricao, Status.Desenvolvimento);
+
+        //    _iTarefaRepositorio.Inserir(novaTarefa);
+        //    Tarefas_Desenvolvimento.Add(novaTarefa);
+        //}
+        Tarefa tarefa = await NovaTarefa(Status.Desenvolvimento);
+        Tarefas_Backlog.Add(tarefa);
+    }
+
+    private async void AdicionarTarefa_Concluida_Clicked(object sender, EventArgs e)
+    {
+        //string titulo = await DisplayPromptAsync("Nova Tarefa", "Digite o título da tarefa:");
+
+        //if (!string.IsNullOrWhiteSpace(titulo))
+        //{
+        //    string descricao = await DisplayPromptAsync("Nova Tarefa", "Digite a descrição da tarefa:");
+
+        //    Tarefa novaTarefa = new Tarefa().DadosIncluir(titulo, descricao, Status.Concluida);
+
+        //    _iTarefaRepositorio.Inserir(novaTarefa);
+        //    Tarefas_Concluida.Add(novaTarefa);
+        //}
+        Tarefa tarefa = await NovaTarefa(Status.Concluida);
+        Tarefas_Backlog.Add(tarefa);
+    }
+
+    private async Task<Tarefa> NovaTarefa(Status status)
+    {
+        Tarefa novaTarefa = new Tarefa();
         string titulo = await DisplayPromptAsync("Nova Tarefa", "Digite o título da tarefa:");
 
         if (!string.IsNullOrWhiteSpace(titulo))
         {
             string descricao = await DisplayPromptAsync("Nova Tarefa", "Digite a descrição da tarefa:");
 
-            var novaTarefa = new Tarefa
-            {
-                Titulo = titulo,
-                Descricao = descricao
-            };
-            Tarefas_Backlog.Add(novaTarefa);
-        }
-    }
+            novaTarefa = new Tarefa().DadosIncluir(titulo, descricao, status);
 
-    private async void AdicionarTarefa_Analise_Clicked(object sender, EventArgs e)
-    {
-        string titulo = await DisplayPromptAsync("Nova Tarefa", "Digite o título da tarefa:");
-
-        if (!string.IsNullOrWhiteSpace(titulo))
-        {
-            var novaTarefa = new Tarefa
-            {
-                Titulo = titulo,
-                Descricao = "Descrição padrão"
-            };
-            Tarefas_Analise.Add(novaTarefa);
-        }
-    }
-
-    private async void AdicionarTarefa_ParaFazer_Clicked(object sender, EventArgs e)
-    {
-        string titulo = await DisplayPromptAsync("Nova Tarefa", "Digite o título da tarefa:");
-
-        if (!string.IsNullOrWhiteSpace(titulo))
-        {
-            var novaTarefa = new Tarefa
-            {
-                Titulo = titulo,
-                Descricao = "Descrição padrão"
-            };
-            Tarefas_ParaFazer.Add(novaTarefa);
-        }
-    }
-
-    private async void AdicionarTarefa_Desenvolvimento_Clicked(object sender, EventArgs e)
-    {
-        string titulo = await DisplayPromptAsync("Nova Tarefa", "Digite o título da tarefa:");
-
-        if (!string.IsNullOrWhiteSpace(titulo))
-        {
-            var novaTarefa = new Tarefa
-            {
-                Titulo = titulo,
-                Descricao = "Descrição padrão"
-            };
-            Tarefas_Desenvolvimento.Add(novaTarefa);
-        }
-    }
-
-    private async void AdicionarTarefa_Concluida_Clicked(object sender, EventArgs e)
-    {
-        string titulo = await DisplayPromptAsync("Nova Tarefa", "Digite o título da tarefa:");
-
-        if (!string.IsNullOrWhiteSpace(titulo))
-        {
-            var novaTarefa = new Tarefa
-            {
-                Titulo = titulo,
-                Descricao = "Descrição padrão"
-            };
+            await _iTarefaRepositorio.Inserir(novaTarefa);
             Tarefas_Concluida.Add(novaTarefa);
         }
+        return novaTarefa;
     }
 }

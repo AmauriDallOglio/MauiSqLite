@@ -1,12 +1,20 @@
-﻿namespace MauiSqLite.App
+﻿using MauiSqLite.Dominio.Interface;
+using MauiSqLite.Infra.Repositorio;
+
+namespace MauiSqLite.App
 {
     public partial class MainPage : ContentPage
     {
         int count = 0;
 
-        public MainPage()
+        private readonly IUsuarioRepositorio _iUsuarioRepositorio;
+        private readonly ITarefaRepositorio _tarefaRepositorio;
+        public MainPage(ITarefaRepositorio tarefaRepositorio, IUsuarioRepositorio iUsuarioRepositorio)
         {
             InitializeComponent();
+
+            _iUsuarioRepositorio = iUsuarioRepositorio;
+            _tarefaRepositorio = tarefaRepositorio;
 
             string dbPath = App.AppDatabasePath;
             string databaseName = Path.GetFileName(dbPath);
@@ -54,7 +62,7 @@
 
         private async void OnUsuarioButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Pagina.Usuario.UsuarioIndex());
+            await Navigation.PushAsync(new Pagina.Usuario.UsuarioIndex(_iUsuarioRepositorio));
         }
         private async void OnTarefaButtonClicked(object sender, EventArgs e)
         {
@@ -63,7 +71,7 @@
 
         private async void OnKanbanButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Pagina.Tarefas.TarefaKanban());
+            await Navigation.PushAsync(new Pagina.Tarefas.TarefaKanban(_tarefaRepositorio));
         }
 
     }
