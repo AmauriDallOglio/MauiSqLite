@@ -1,13 +1,15 @@
 using MauiSqLite.Dominio.Entidade;
-using MauiSqLite.Dominio.Enum;
+using MauiSqLite.Dominio.Interface;
 using System.Collections.ObjectModel;
 namespace MauiSqLite.App.Pagina.Tarefas;
 
 public partial class TarefaIndex : ContentPage
 {
     public ObservableCollection<Tarefa> Tarefas { get; set; } = new();
-    public TarefaIndex()
+    private readonly ITarefaRepositorio _tarefaRepositorio; 
+    public TarefaIndex(ITarefaRepositorio iTarefaRepositorio)
 	{
+        _tarefaRepositorio = iTarefaRepositorio;
         InitializeComponent();
         BindingContext = this;
         CarregarTarefas();
@@ -15,30 +17,12 @@ public partial class TarefaIndex : ContentPage
 
     private async void CarregarTarefas()
     {
-        //var listaTarefas = new List<Tarefa>
-        //{
-        //    new Tarefa { Id = 1, Descricao = "Revisar código", Status = Status.Analise },
-        //    new Tarefa { Id = 2, Descricao = "Testar API", Status  = Status.ParaFazer },
-        //    new Tarefa { Id = 3, Descricao = "Documentar projeto", Status = Status.Desenvolvimento }
-        //};
-        var agora = DateTime.Now;
-
-        var listaTarefas = new List<Tarefa>
-        {
-            new() { Id = 1, Titulo = "Revisão de Código", Descricao = "Verificar padrões e qualidade do código.",
-                    Status = Status.Analise, DataCriacao = agora.AddDays(-2), DataAtualizacao = agora, Id_Usuario = 101 },
-
-            new() { Id = 2, Titulo = "Testes de API", Descricao = "Executar testes unitários na API.",
-                    Status  = Status.ParaFazer, DataCriacao = agora.AddDays(-5), DataAtualizacao = agora.AddDays(-1), Id_Usuario = 102 },
-
-            new() { Id = 3, Titulo = "Documentação", Descricao = "Escrever documentação do projeto.",
-                    Status = Status.Desenvolvimento, DataCriacao = agora.AddDays(-10), DataAtualizacao = agora.AddDays(-3), Id_Usuario = 103 }
-        };
+        var listaTarefas = await _tarefaRepositorio.ObterTodos();
 
         if (Tarefas.Count > 0)
             Tarefas.Clear();
 
-        foreach (var tarefa in listaTarefas)
+        foreach (var tarefa in listaTarefas.OrderByDescending(a => a.DataCriacao))
         {
             Tarefas.Add(tarefa);
         }

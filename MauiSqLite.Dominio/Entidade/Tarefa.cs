@@ -1,5 +1,4 @@
 ﻿using MauiSqLite.Dominio.Enum;
-using SQLite;
 
 namespace MauiSqLite.Dominio.Entidade
 {
@@ -37,29 +36,5 @@ namespace MauiSqLite.Dominio.Entidade
         {
             this.DataAtualizacao = DateTime.Now;
         }
-
-
- 
-
-
-        //[Ignore]
-        //public Usuario Usuario
-        //{
-        //    get
-        //    {
-        //        if (this.UsuarioId == 0) return null;
-        //        return UsuariosServico.Instancia().Todos().Find(u => u.Id == this.UsuarioId);
-        //    }
-        //}
-
-        //[Ignore]
-        //public string NomeUsuario
-        //{
-        //    get
-        //    {
-        //        if (this.Usuario == null) return "Sem Usuario";
-        //        return Usuario?.Nome;
-        //    }
-        //}
     }
 }

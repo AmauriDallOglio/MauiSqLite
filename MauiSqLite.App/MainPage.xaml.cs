@@ -66,7 +66,7 @@ namespace MauiSqLite.App
         }
         private async void OnTarefaButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Pagina.Tarefas.TarefaIndex());
+            await Navigation.PushAsync(new Pagina.Tarefas.TarefaIndex(_tarefaRepositorio));
         }
 
         private async void OnKanbanButtonClicked(object sender, EventArgs e)

@@ -45,21 +45,16 @@ public partial class TarefaKanban : ContentPage
             "Alterar Status",
             "Cancelar",
             null,
-            statusMap.Keys.ToArray() // Passa apenas os nomes dos status
+            statusMap.Keys.ToArray()
         );
 
         var codigoo = statusMap.TryGetValue(novoStatus, out int statusCodigo);
 
         if (!string.IsNullOrWhiteSpace(novoStatus) && novoStatus != "Cancelar")
         {
-            // Remover tarefa da lista atual
             RemoverTarefaDasListas(tarefa);
-
-            // Atualizar status
             Status novoEnumStatus = (Status)statusCodigo;
             tarefa.Status = novoEnumStatus; 
-
-            // Adicionar na nova lista
             AdicionarTarefaNaLista(tarefa);
         }
     }
@@ -158,88 +153,30 @@ public partial class TarefaKanban : ContentPage
 
     private async void AdicionarTarefa_Backlog_Clicked(object sender, EventArgs e)
     {
-        //string titulo = await DisplayPromptAsync("Nova Tarefa", "Digite o título da tarefa:");
-
-        //if (!string.IsNullOrWhiteSpace(titulo))
-        //{
-        //    string descricao = await DisplayPromptAsync("Nova Tarefa", "Digite a descrição da tarefa:");
-
-        //    Tarefa novaTarefa = new Tarefa().DadosIncluir(titulo, descricao, Status.Backlog);
-
-        //    _iTarefaRepositorio.Inserir(novaTarefa);
-        //    Tarefas_Backlog.Add(novaTarefa);
-        //}
-
         Tarefa tarefa = await NovaTarefa(Status.Backlog);
         Tarefas_Backlog.Add(tarefa);
-
-
     }
 
     private async void AdicionarTarefa_Analise_Clicked(object sender, EventArgs e)
     {
-        //string titulo = await DisplayPromptAsync("Nova Tarefa", "Digite o título da tarefa:");
-
-        //if (!string.IsNullOrWhiteSpace(titulo))
-        //{
-        //    string descricao = await DisplayPromptAsync("Nova Tarefa", "Digite a descrição da tarefa:");
-
-        //    Tarefa novaTarefa = new Tarefa().DadosIncluir(titulo, descricao, Status.Analise);
-
-        //    _iTarefaRepositorio.Inserir(novaTarefa);
-        //    Tarefas_Analise.Add(novaTarefa);
-        //}
         Tarefa tarefa = await NovaTarefa(Status.Analise);
         Tarefas_Backlog.Add(tarefa);
     }
 
     private async void AdicionarTarefa_ParaFazer_Clicked(object sender, EventArgs e)
     {
-        //string titulo = await DisplayPromptAsync("Nova Tarefa", "Digite o título da tarefa:");
-
-        //if (!string.IsNullOrWhiteSpace(titulo))
-        //{
-        //    string descricao = await DisplayPromptAsync("Nova Tarefa", "Digite a descrição da tarefa:");
-
-        //    Tarefa novaTarefa = new Tarefa().DadosIncluir(titulo, descricao, Status.ParaFazer);
-
-        //    _iTarefaRepositorio.Inserir(novaTarefa);
-        //    Tarefas_ParaFazer.Add(novaTarefa);
-        //}
         Tarefa tarefa = await NovaTarefa(Status.ParaFazer);
         Tarefas_Backlog.Add(tarefa);
     }
 
     private async void AdicionarTarefa_Desenvolvimento_Clicked(object sender, EventArgs e)
     {
-        //string titulo = await DisplayPromptAsync("Nova Tarefa", "Digite o título da tarefa:");
-
-        //if (!string.IsNullOrWhiteSpace(titulo))
-        //{
-        //    string descricao = await DisplayPromptAsync("Nova Tarefa", "Digite a descrição da tarefa:");
-
-        //    Tarefa novaTarefa = new Tarefa().DadosIncluir(titulo, descricao, Status.Desenvolvimento);
-
-        //    _iTarefaRepositorio.Inserir(novaTarefa);
-        //    Tarefas_Desenvolvimento.Add(novaTarefa);
-        //}
         Tarefa tarefa = await NovaTarefa(Status.Desenvolvimento);
         Tarefas_Backlog.Add(tarefa);
     }
 
     private async void AdicionarTarefa_Concluida_Clicked(object sender, EventArgs e)
     {
-        //string titulo = await DisplayPromptAsync("Nova Tarefa", "Digite o título da tarefa:");
-
-        //if (!string.IsNullOrWhiteSpace(titulo))
-        //{
-        //    string descricao = await DisplayPromptAsync("Nova Tarefa", "Digite a descrição da tarefa:");
-
-        //    Tarefa novaTarefa = new Tarefa().DadosIncluir(titulo, descricao, Status.Concluida);
-
-        //    _iTarefaRepositorio.Inserir(novaTarefa);
-        //    Tarefas_Concluida.Add(novaTarefa);
-        //}
         Tarefa tarefa = await NovaTarefa(Status.Concluida);
         Tarefas_Backlog.Add(tarefa);
     }
