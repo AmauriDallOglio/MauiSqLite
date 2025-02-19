@@ -95,28 +95,6 @@ public partial class TarefaKanban : ContentPage
     {
         DateTime agora = DateTime.Now;
 
-        //var listaTarefas = new List<Tarefa>
-        //{
-        //    new() { Id = 1, Titulo = "Revisão de Código", Descricao = "Verificar padrões de código", Status = Status.Analise, DataCriacao = agora.AddDays(-2) },
-        //    new() { Id = 2, Titulo = "Testes API", Descricao = "Executar testes unitários", Status = Status.ParaFazer, DataCriacao = agora.AddDays(-5) },
-        //    new() { Id = 3, Titulo = "Documentação", Descricao = "Escrever documentação", Status = Status.Desenvolvimento, DataCriacao = agora.AddDays(-10) },
-        //    new() { Id = 4, Titulo = "Deploy", Descricao = "Publicar versão final", Status = Status.Backlog, DataCriacao = agora.AddDays(-1) },
-        //    new() { Id = 5, Titulo = "Bug Fix", Descricao = "Corrigir erro crítico", Status = Status.Analise, DataCriacao = agora.AddDays(-3) },
-        //    new() { Id = 6, Titulo = "Refatoração", Descricao = "Melhorar código legado", Status = Status.ParaFazer, DataCriacao = agora.AddDays(-7) },
-        //    new() { Id = 7, Titulo = "Integração", Descricao = "Configurar APIs", Status = Status.Desenvolvimento, DataCriacao = agora.AddDays(-8) },
-        //    new() { Id = 8, Titulo = "Revisão Final", Descricao = "Última revisão antes do deploy", Status = Status.Backlog, DataCriacao = agora.AddDays(-2) }
-        //};
-
-        //foreach (var tarefa in listaTarefas)
-        //{
-        //    //tarefa.Id_Usuario = 1;
-        //    tarefa.DataAtualizacao = agora;
-        //    tarefa.DataCriacao = agora;
-
-        //    await _iTarefaRepositorio.Inserir(tarefa);
-        //}
-
-
         var listaTarefas = _iTarefaRepositorio.ObterTodos().Result;
 
         Tarefas_Analise.Clear();

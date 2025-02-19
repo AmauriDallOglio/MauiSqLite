@@ -9,13 +9,7 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
-            <!-- ActivityIndicator -->
-            <Label Text="ActivityIndicator" FontSize="18" FontAttributes="Bold" />
-            <ActivityIndicator IsRunning="True" />
-
-            <!-- IndicatorView -->
-            <Label Text="IndicatorView" FontSize="18" FontAttributes="Bold" />
-            <IndicatorView />
+ 
 
             <!-- Border -->
             <Label Text="Border" FontSize="18" FontAttributes="Bold" />
@@ -33,11 +27,22 @@
 
             <!-- CheckBox -->
             <Label Text="CheckBox" FontSize="18" FontAttributes="Bold" />
-            <CheckBox IsChecked="True" />
+
+            <HorizontalStackLayout Spacing="10">
+                <CheckBox IsChecked="True"/>
+                <Label Text="Aceito os termos" VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+
+
+
 
             <!-- DatePicker -->
             <Label Text="DatePicker" FontSize="18" FontAttributes="Bold" />
             <DatePicker />
+
+            <Label Text="Data" FontSize="18" FontAttributes="Bold" />
+            <DatePicker Format="dd/MM/yyyy" />
+            
 
             <!-- Editor -->
             <Label Text="Editor" FontSize="18" FontAttributes="Bold" />

@@ -11,7 +11,7 @@ namespace MauiSqLite.App
 
         //public static IUsuarioRepositorio AppIUsuarioRepositorio { get; private set; }
         //public static ITarefaRepositorio AppITarefaRepositorio { get; private set; }
-        //public static MeuContexto AppMeuContexto { get; private set; }
+        public static MeuContexto AppMeuContexto { get; private set; }
         public static string AppDatabasePath = string.Empty;
 
         public App(IServiceProvider serviceProvider)
@@ -22,9 +22,14 @@ namespace MauiSqLite.App
 
                 AppDatabasePath = Path.Combine(FileSystem.AppDataDirectory, "app.db");
 
-                //AppMeuContexto = serviceProvider.GetRequiredService<MeuContexto>();
+                AppMeuContexto = serviceProvider.GetRequiredService<MeuContexto>();
                 //AppIUsuarioRepositorio = serviceProvider.GetRequiredService<IUsuarioRepositorio>();
                 //AppITarefaRepositorio = serviceProvider.GetRequiredService<ITarefaRepositorio>();
+
+
+                Task.Run(async () => await AppMeuContexto.InseriTarefasDatabaseAsync());
+
+
 
                 MainPage = new AppShell();
             }
