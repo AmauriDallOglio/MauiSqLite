@@ -1,5 +1,4 @@
 ﻿using MauiSqLite.Dominio.Interface;
-using MauiSqLite.Infra.Repositorio;
 
 namespace MauiSqLite.App
 {
@@ -72,6 +71,11 @@ namespace MauiSqLite.App
         private async void OnKanbanButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Pagina.Tarefas.TarefaKanban(_tarefaRepositorio));
+        }
+
+        private async void OnGraficoTarefaButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Pagina.Dashboard.TarefaGrafico(_tarefaRepositorio));
         }
 
     }

@@ -96,7 +96,14 @@
                 Clicked="OnKanbanButtonClicked"
                 HorizontalOptions="Fill" />
 
-
+            <Button
+                Style="{StaticResource CustomButtonStyle}" 
+                x:Name="BotaoGraficoTarefa"
+                Text="Grafico Tarefa"
+                Clicked="OnGraficoTarefaButtonClicked"
+                HorizontalOptions="Fill" />
+            
+            
         </VerticalStackLayout>
     </ScrollView>
     

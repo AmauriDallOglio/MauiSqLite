@@ -1,9 +1,9 @@
-﻿using MauiSqLite.App.Pagina.Tarefas;
-using MauiSqLite.Dominio.Interface;
+﻿using MauiSqLite.Dominio.Interface;
 using MauiSqLite.Infra.Contexto;
 using MauiSqLite.Infra.Repositorio;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace MauiSqLite.App
 {
@@ -17,6 +17,7 @@ namespace MauiSqLite.App
 
             builder
                 .UseMauiApp<App>()
+                .UseSkiaSharp()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -37,9 +38,13 @@ namespace MauiSqLite.App
  
             builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
             builder.Services.AddScoped<ITarefaRepositorio, TarefaRepositorio>();
+ 
 
 
             builder.Services.AddTransient<MainPage>();
+
+ 
+
 
 
             var mauiApp = builder.Build();
